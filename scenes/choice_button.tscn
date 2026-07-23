@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://crq5bxho15sfq"]
+
+[ext_resource type="FontFile" uid="uid://fj4ylg5wcjg" path="res://fonts/Outfit-Regular.ttf" id="1_u2sgh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w8wx8"]
+content_margin_left = 28.0
+content_margin_top = 20.0
+content_margin_right = 28.0
+content_margin_bottom = 20.0
+bg_color = Color(0.29803923, 0.32941177, 0.45882353, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.42372876, 0.4613626, 0.6125454, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0i16n"]
+content_margin_left = 28.0
+content_margin_top = 20.0
+content_margin_right = 28.0
+content_margin_bottom = 20.0
+bg_color = Color(0.9678543, 0.6216515, 0.2725873, 0.2)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.93333334, 0.42352942, 0.3019608, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u2sgh"]
+content_margin_left = 28.0
+content_margin_top = 20.0
+content_margin_right = 28.0
+content_margin_bottom = 20.0
+bg_color = Color(0.29803923, 0.32941177, 0.45882353, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.9411765, 0.93333334, 0.9607843, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ioyl"]
+content_margin_left = 28.0
+content_margin_top = 20.0
+content_margin_right = 28.0
+content_margin_bottom = 20.0
+bg_color = Color(0.29803923, 0.32941177, 0.45882353, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.42352942, 0.4627451, 0.6117647, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[node name="ChoiceButton" type="Button" unique_id=1086268978]
+offset_right = 184.0
+offset_bottom = 114.0
+theme_override_fonts/font = ExtResource("1_u2sgh")
+theme_override_font_sizes/font_size = 58
+theme_override_styles/normal = SubResource("StyleBoxFlat_w8wx8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0i16n")
+theme_override_styles/hover = SubResource("StyleBoxFlat_u2sgh")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1ioyl")
+text = "test"
+alignment = 0
+autowrap_mode = 2

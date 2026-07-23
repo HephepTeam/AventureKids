@@ -1,0 +1,186 @@
+import Character
+import AventureKids_Reve
+import ParentsOtagePirates
+import JourneeIncr
+import MinecraftDansLeJeu
+import PerduBois
+
+
+// Todo : 
+// Minecraft: aspiré dans le jeu
+
+state
+  energie: 12
+  satiete: 0
+  cereales : false
+  brioche : false
+  lait : false
+  jdf : false
+  au_lit: true
+  fringue_sales: false
+  ptitDej: false
+  vu_geant: false
+  rendu_pipe: false
+  jette_pipe: false
+  toboggan: false
+  vu_lutins: false
+  reve_fait: false
+  convaincre_papa_essais : 6
+  papa_convaincu: false
+  chasser_boule: false
+  vu_oiseau_colline: false
+  vu_fourmi_tunnel : false
+  vaincu_pirate: false
+
+
+
+// Entrer dans le café
+beat Start
+
+  Narrateur: Bienvenue, $player, choisi ton personnage!
+
+  choice
+    Je m'appelle Justin
+      player.name := Justin
+
+    Je suis Elise
+      player.name := Elise
+
+  Narrateur: Bienvenue dans l'aventure, $player! Tu va vivre une journée incroyable, mais attention à ne pas tomber dans les pièges qu'elle te réserve!
+  wait(2.0)
+  Narrateur: Mais commençons par le commencement... Tu dors encore...
+  -> Reveil
+
+
+beat Reveil
+
+  Depuis un sommeil profond, tu entends une voix loitaine...
+
+  inconnu: $player, c'est l'heure de se réveiller! Debout ${player.name == "Justin" ? "mon chéri!" : "ma chérie!"}
+
+  choice
+    Ne rien faire
+      play_sound()
+      tu reconnais la voix de papa...
+      -> PapaInsiste
+
+    Répondre: "Mmmh, oui Papa, j'arrive!"
+        -> Descend
+
+beat PapaInsiste
+      Papa: $player! Debout! Il est l'heure ${player.name == "Justin" ? "mon grand!" : "ma grande!"}
+      choice
+        ... if reve_fait != true
+          Tu ne bouges toujours pas. Tu fini par te rendormir...
+          -> Reve
+
+        "Papaaaaaa...."
+          Tu essai d'attirer son attention...
+          -> PapaMonte
+
+        "J'arrive..."
+          Allez, un petit effort, et tu descends!
+          -> Descend
+
+beat PapaMonte
+  Tu fais comprendre à $papa que tu es trop fatigué${player.name == "Justin" ? "" : "e"}, et comme il a l'habitude, il commence à monter l'escalier. Tu essai de
+  te faire ${player.name == "Justin" ? "le plus attendrissant possible" : "la plus mignonne possible"} et quand il arrive, tu lui dis que tu as une super idée, que ton
+  idée ça serait que personne n'aille travailler, qu'on pourrait simplement rester en pyjama et jouer toute la journée!
+
+  Au début, il n'a pas l'air d'accord...
+  -> convaincrePapa
+
+beat convaincrePapa
+  Peut être en insistante un peu plus...
+
+  choice
+    "Allez $papa, s'il te plaaaaaaaaaaait!"
+      convaincre_papa_essais -= 1
+      if convaincre_papa_essais > 0
+        pick
+          Il n'est pas d'accord!
+        --
+          Il refuse à nouveau!
+        --
+          Il n'a toujours pas l'air très chaud...
+        --
+          Rien à faire, il ne veut pas...
+        -> convaincrePapa
+
+      else
+        Papa fini par céder! Il appelle son travail et te demande de choisir un jeu! Trop bien!
+        papa_convaincu = true
+        -> JourneeIncr
+
+
+    "Bon d'accord, je descends..."
+      $papa approuve, et descend le premier.
+      -> Descend
+
+  //papa monte, et on peut avoir le choix de le convaincre de rester pour jouer aux échecs ou aux légo, et faire des dessins. Personne ne va travailler -> JournéeIncr
+  //sinon, tout le monde redescend ensemble -> JournéeNorm
+
+beat Descend
+  au_lit = false
+  Tu rassemble toute tes forces et tu t'extrais du lit. La couverture est tout en vrac. Les yeux encore tout embrumés,
+  sans même allumer la lumière, tu sors et tu t'engages dans l'escalier.
+  wait(2.0)
+  Arrivé en bas, Papa n'est pas dans le salon. Deux choix s'offre à toi:
+  -> choixRDC
+
+beat choixRDC
+  choice
+    - Aller vers la chambre des parents
+      Tu te diriges vers la chambre de tes parents pour un réveil plus doux dans leur lit. Ils vont t'acceuillir à bras ouvert: ils adorent les calins!
+      wait(1.0)
+      -> ParentsOtagePirates
+
+    - Preparer ton petit déjeuner
+    -> PetitDej
+
+beat PetitDej
+  if satiete == 0
+    Tu te diriges vers la cuisine en te demandant ce que tu pourrais manger...
+  else
+    pick
+      C'était pas mal, quoi d'autre?
+    --
+      Trop bon! Encore faim?
+    --
+      Excellent, on continue?
+
+  ptitDej = true
+  choice
+    - Manger des céréales if satiete  < 8
+      satiete += 3
+
+    - Manger de la brioche if satiete  < 8
+      satiete += 3
+
+    - Manger du jambon if satiete  < 8
+      satiete += 3
+
+    - Manger un yaourt if satiete  < 8
+      satiete += 3
+
+    - Manger un éclair au chocolat if satiete  < 8
+      satiete += 6
+
+    - Manger un magnum double chocolat if satiete  < 8
+      satiete += 6
+
+    - Boire du lait if satiete  < 8
+      satiete += 2
+    - Boire du jus de fruits if satiete  < 8
+      satiete += 2
+
+    Tu n'as ${satiete == 0 ? "pas" : "plus"} faim, on range et on passe a la suite!
+      -> choixRDC
+
+  -> PetitDej
+
+
+beat FinReve
+  ... tu ouvres yeux! Ouf, c'est le plafond de ta chambre... Ce n'était qu'un rêve!
+  -> PapaInsiste
+

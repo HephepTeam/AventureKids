@@ -1,0 +1,187 @@
+beat JourneeIncr
+    Par quoi va-t-on commencer?
+
+    choice
+        - Une partie d'échec
+            Tu sors le jeu d'échec, celui avec la boite bleu et la pieuvre dessinée dessus, et vous faites plusieurs parties. Malgré tes efforts, Papa les gagnes toutes...
+            -> JourneeIncr
+        - Une partie de monopoly if player.name == "Justin"
+            Dans les yeux de $papa tu vois bien que ce n'étais pas son premier choix, mais il accepte quand même, et prend même du plaisir quand il croit pouvoir gagner! Malheureusement pour lui,
+            tu râfles bientôt les meilleurs rues et tu l'écrases complètement...
+            -> JourneeIncr
+        - Un concours de dessin if player.name == "Elise"
+            Tu sors la grosse boite de feutre achetée par $maman et $papa récupère un épais paquet de feuilles blanches. Chacun son tour, vous décidez du sujet à dessiner. 
+            Papa dessine bien, mais c'est normal il a plus d'expérience! Il est très fier de tes dessins.
+            -> JourneeIncr
+        - Une partie de Minecraft
+            $papa et toi descendez au salon pour jouer à deux sur la Switch. //aspirée dans le jeu?
+            -> JourneeIncr
+        - un match de Rocket League en coopération if player.name == "Justin"
+            $papa et toi descendez au salon pour jouer à deux, toi sur la PS5, lui sur son PC.
+            -> JourneeIncr
+        - Un tour en vélo sur la voie verte
+            $papa prépare le porte vélo pendant que tu vas chercher ton bolide dans la remise au fond du jardin.
+            -> LostInWoods
+        Finalement, une journée normale c'est bien aussi
+            -> Descend
+
+
+beat LostInWoods
+    Tu vérifies, et vous avez tout le matériel: pompe a vélo, casquette, sac avec gourde et un petit goûter, et lunette de soleil en cas de besoin.
+    $papa décharge les vélos au niveau de Bray-et-Lu, et vous commencez à rouler tranquillement vers Fourges. Il fait beau, le ciel bleu est de la partie et quelques nuages
+    sont éparpillés ça et là au dessus de toi pour de faire de l'ombre quand tu as trop chaud. La piste cyclable est plâte, et sans efforts vous arrivez rapidement à la salle municipale
+    de Fourges, à côté du terrains avec les machines de sports sur lesquelles tu aimes bien monter et jouer. C'est là que vous faites votre première pause. 
+    En contrebas, à côté du terrain de foot, tu vois un chemin qui s'enfonce entre les arbres. Tu demandes à $papa s'il sait ou ça va. 
+    
+    papa: Non, pas du tout, ça te dirait d'aller voir?
+
+    choice
+        Y aller, ça changera de la voie verte!
+        -> PerduBois
+
+        Finalement, bof, mauvaise idée
+          S'il faut descendre, il va falloir remonter! Et ça, ça ne te plait pas trop. Vous reprenez votre route et arrivez à atteindre Gasny, à côté d'Intermarché.
+          Vous en profitez pour prendre une glace à la place du goûter, c'est plus sympa.
+          Le retour se fait sans encombre, mais tu sens tes jambes très fatiguées une fois dans la voiture. 
+          -> retourBalade
+
+beat retourBalade
+          wait(1.0)
+
+          Une fois à la maison, il est déjà 18h30! $papa te demandes de ranger le vélo... tu y vas mais en râlant, tu as mal aux jambes.
+
+          papa: Et et revenant, il faudra prendre une douche!
+
+          Comment?? Innacceptable! Tu es trop fatigué${player.name == "Justin" ? "": "e"}! Tu tentes tout pour éviter ça, mais $papa insiste. Tu négocies pour ne pas 
+          te laver les cheveux, c'est pénible les cheveux...
+
+          papa: Ok, pas les cheveux, mais la prochaine fois tu n'y coupes pas!
+
+          La douche prise, vous passez à table. Demain il y'a école, donc on ne traine pas après manger. Un coup de brosse à dent, un bisou a $papa et $maman et zou! 
+          On file dans la chambre.
+          -> LeCoucher
+
+
+beat LeCoucher
+    if player.name == "Justin"
+        tu demandes quand même si tu peux écouter la radio avant de t'endormir, sur la Bose! 
+    else
+        tu demandes quand même si tu peux écouter ta Flam avant de t'endormir, juste une histoire! 
+
+        papa: Ok, mais 30 minutes, pas plus!
+
+
+        parfait!
+        if player.name == "Justin"
+            Tu règles avec lui l'émission et tu pars l'écouter dans ta chambre. Même si $papa n'aime pas trop ces émissions, toi ça te détend.
+        else
+            Tu récupères l'appareil tu pars l'écouter dans ta chambre. Même si $papa trouves que c'est toujours un peu long, toi ça te détend.
+        wait(2.0)
+
+        A un moment, ${player.name == "Justin" ? "l'émission": "la Flam"} commence à grésiller et ça s'éteint. Ça ne fait pourtant pas 30 minutes! 
+        wait (2.0)
+
+        une voix grave s'élève alors de l'intérieur de ${player.name == "Justin" ? "ton armoire": "ta commode"}... la surprise est telle que tu sursautes, mais sans crier...
+
+        voix: houuuuuuuuuuu $player, je suis le fantôôôôôôôôme, le fantôôôôôme du meuble à vêtement! Tu déranges mon repos, pars maintenant houuuuu!
+        -> LecoucherFantome
+
+        
+
+beat LecoucherFantome
+        choice
+            - Se cacher sous la couette
+              voix: houuuuuu pas la peine de te cacher, je sais que tu es lààààà! Houuu file d'ici, crains ma colère!!
+              -> LecoucherFantome
+
+            - Appeler Papa!
+              -> PhantomPapa
+
+            - se lever et ouvrir l'armoire
+              Tu es ${player.name == "Justin" ? "furieux": "furieuse"}! Comment ça, c'est quoi ces histoires? Tu es fatigué${player.name == "Justin" ? "": "e"}, ce n'est pas un fantôme
+              à la noix qui va t'empêcher de dormir! Tu te lèves en jetant ta couette par terre, allumes la lumière, et te dirige vers le meuble en question. Tu l'ouvres, {player.name == "Justin" ? "prêt": "prête"}
+              à en découdre, mais il n'y a rien! Alors tu soulèves chaque vêtement, tu scrutes chaque recoin, et tu tombe sur une drôle de bestiole...
+              wait(2.0)
+              Imagine une sorte de boule verdatre, avec des petites jambes, des petits bras et 2 gros yeux jaunes... on le dirait tout droit sorti d'une bande dessinée de Kid Paddle...
+              Appeuré, il se terre dans un coin du meuble, tremblant, visiblement très deçu que tu l'ai découvert...
+
+              "Boule bizarre": Ok ok, tu m'as eu, ne me fait pas de mal s'il te plait! 
+
+              Agacé${player.name == "Justin" ? "": "e"}, tu lui demandes ce qu'il fait là, et pourquoi il t'empêche de dormir.
+              Il s'avère qu'il a perdu sa maison, et qu'il cherche un coin pour dormir, mais il avait peur qu'en le voyant tu essayes de l'écraser!
+              Alors il va voulu se faire passer pour plus menaçant qu'il n'est vraiment, il comptait te faire fuir pour s'installer dans ta chambre...
+              wait(2.0)
+              ...Mais il regrette! IL te demande pardon, il demande à ce que tu l'épargne, et que tu l'aides à trouver un foyer, s'il te plait, 
+              s'il te plait silteplaitsilteplaiiiiiit!
+
+              choice
+                Pas question qu'il reste! Il va t'empêcher de dormir! Dehors la boule bizarre!
+                  "Boule bizarre": Non, laisse-moi une chance? S'il te plait? Il fait si froid dehors...
+
+                  Tu ouvre la fenêtre et l'encourage à partir. Il te fait ses yeux les plus misérables en passant, comme un petit chat tout mignon!
+                  Un petit chat tout rond, tout vert et sans poils...
+                  choice
+                    Bon, d'accord, il peut rester!
+                      -> fabricationAbriBoule
+                    Ca ne fonctionne pas avec toi! Allez zou, dehors!
+                      La boule verte sur pattes se renfrogne alors, et passe à contrecoeur par la fenêtre...
+                      -> chasserBoule
+
+                Tu l'autorises a rester, et tu comptes même l'aider à se faire un coin douillet!
+                  -> fabricationAbriBoule
+
+                Tu décides qu'il faut mettre un terme à tout ça, et tu attrapes ton fusil Nerf sous ton lit...
+                  Il t'as vu, et voyant que tu n'es pas là pour rigoler, il fonce vers la fenêtre et deploit toutes ses forces
+                  pour l'ouvrir. Tu commences à faire feux, et les flechettes s'abattent atour de lui alors qu'il se contorsionne pour passer
+                  dans l'étroite ouverture du velux... puis PLOP! une flêchette lui touche l'arrière-train et le propulse en dehors. Il dévale le toit,
+                  tombe lourdement sur la terrasse, se relève tant bien que mal et s'enfuit vers le fond du jardin.
+                  -> chasserBoule
+
+beat chasserBoule
+  Tandis qu'il s'éloigne, tu l'entends grommeler... et puis il se retourne, t'envoi un regard noir, et dit:
+
+  "boule bizarre": Je m'en souviendrais, tu payeras pour ça! Attends-toi à entendre parler de moi!
+
+  Il te tire la langue, et disparait dans la haie. Une bonne chose de faites!
+  chasser_boule = true
+  Bon, et bien il ne reste plus qu'a aller dormir!
+  -> FinCoucher 
+
+beat PhantomPapa
+    sequence
+        voix: Noooon n'appelle pas ton papa! Il ne peut rien pour toi houuuuuuuu ne l'appelle pas!
+        -> LecoucherFantome
+    --
+        voix: Chuuuuut voyons il va t'entendre! vas-t-en plutôt, fiche le camp d'ici!
+        -> LecoucherFantome
+    --
+        voix: Arrête! Arrête! Pas la peine de le déranger! Houuuuu vas-tu me craindre, ${player.name == "Justin" ? "garnement": "effrontée"}!
+        -> LecoucherFantome
+    --
+        Le fantôme ne réagit plus, il semble être parti.
+        -> FinCoucher
+
+beat fabricationAbriBoule
+  Tu lui trouves une belle boite à chaussures que tu gardais pour tes jouets, tu y découpes plusieurs ouvertures pour lui faire des fenêtres et une porte (avec une punaise pour la poignée),
+  et le garni d'un t-shirt un peu trop petit pour toi. tu places cette boite sous ton lit, a l'abri du chat et de l'aspirateur.
+  La petite boule verte est ravie! Il te remercie chaudement, heureux d'avoir a nouveau un foyer. Et toi, tu es plutôt content${player.name == "Justin" ? "content": "contente"}
+  d'avoir un co-locataire, c'est plus sympa.
+
+  Mais maintenant, c'est l'heure pour tout le monde de dormir, alors tu te dirige vers ton lit.
+  -> FinCoucher
+
+beat FinCoucher
+     Finalement, plus de peur que de mal! Rassuré${player.name == "Justin" ? "": "e"}, tu t'emmitoufles  sous la couette.
+     La journée à été épuisante, tes paupières se ferment toutes seules! Bientôt tu rêves déjà du lendemain...
+
+     wait(3.0)
+     FIN
+
+     Cette histoire t'as plus? As-tu essayé tous les choix? 
+
+     choice
+        Recommencer!
+          -> Start
+        Quitter
+          ->.
+      

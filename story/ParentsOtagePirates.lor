@@ -1,0 +1,85 @@
+beat  ParentsOtagePirates
+  wait(3.0)
+  ...En entrant dans la chambre, tu te retrouves nez à nez avec le bout du canon d'un pistolet à poudre! a l'autre bout du pistolet, la main 
+  d'un drôle de personnage: mal rasé, une dent en moins, un foulard noué sur la tête, et des boucles d'oreilles en or...
+  Un pirate! Tu réalises que tes parents sont tenus en otages par d'autres pirates, les mains en l'air! 
+
+  Papa: Attention, $player, ne restes pas là, va chercher de l'aide!
+
+  mais c'est trop tard, le pirate qui te tiens en joue t'as attrapé le bras. Le chef des pirates, qui à un grand tricorne sur la tête, un bandeau sur l'oeil et un crochet
+  a la place de la main gauche, s'avance et commence à parler:
+
+  chef_pirate: Arrrrh, votre attention l'équipage! On prend toute la p'tite famille, on la fait monter dans l'gallion, et on file vers l'ile de la tortue, toute voiles dehors!
+    Ils vont creuser à not' place pour trouver le trésor, et une fois le magots dans not' poche, on les fait passer sur la planches hehehe!
+
+  Passer tes derniers jours à creuser dans du sable, très peu pour toi! Mais que faire pour t'en sortir?
+  -> reagirPirate
+
+beat reagirPirate
+  choice
+    - Tu prétends avoir besoin d'aller aux toilettes
+      
+      chef_pirate: Certainement pas! tu f'ras par dessus bord, comme tout l'monde! allez, en route!
+      -> reagirPirate
+
+    - tu fais semblant de pleurer pour les attendrir
+      
+      le Capitaine te menace de son crochet: 
+
+      chef_pirate: Ferme-la, morveu${player.name == "Justin" ? "x": "se"}, ou t'auras bientôt b'soin d'un cache-oeil comme le mien! Silence!
+        
+    - tu demande une dernière volonté! Prendre ton jouet préféré...
+      chef_pirate: ça m'parait raisonnable, ma foi... 
+      
+      Il designe un pirate:
+      
+      chef_pirate: Montes avec ${player.name == "Justin" ? "lui": "elle"}, et faites vite! On lève l'ancre dans 10 minutes!
+      
+      Vite, tu réfléchis, est-ce qu'un objet dans ta chambre pourrait t'aider à te sortir de là? 
+
+      if player.name == "Justin"
+        Comme d'habitude, dans ta chambre il fait sombre, tu n'as pas ouvert. Mais tu la connais par coeur! Pendant que le pirate s'habitude à la penombre, qu'utilises-tu pour t'en sortir?
+
+        choice
+          - Une épée en bois
+            Tu lui plantes l'épée derrière le genou, et le pirate tombe au sol en se tenant la jambe!
+          - un spray déodorisant
+            Tu lui asperge le visage avec le spray, et il en prend plein les yeux! Le pirate hurle en se tenant le visage!
+          - un minigun nerf chargé à bloc
+            Tu décides d'employer les grands moyens: une bonne salve de fléchettes Nerf! Le pirate est surpris et, apeuré, s'enfuit par le vélux et dégringole sur le toit avant de tomber sur la terasse. 
+            Bien, maintenant, allons libérer papa et maman!
+            -> libererParents
+      else
+        Comme d'habitude, dans ta chambre il fait sombre, tu n'as pas ouvert. Mais tu la connais par coeur! Pendant que le pirate s'habitude à la penombre, qu'utilises-tu pour t'en sortir?
+
+        choice
+          - Un pot de slime
+            Tu lui fourre le slime dans la bouche alors qu'il s'aprètait à t crier dessus! Le pirate tousse et crache tant qu'il peut!
+          - ta collection de broche et d'épingles a nourrice
+            Disposés par terre devant ses pieds, ces objets piquants blessent le pirate, le font glisser et tomber dans le piège! Il se roule sur lui même, aggravant ses blessures, en essayant de se relever!
+          - un micro electronique portable
+            Tu règle l'appareil a fond, avec le filtre "son aigu" et lui chante ta meilleur version de K-pop Demon Hunter dans les oreilles! Le pirate essais de se boucher les oreilles avec ses doigts, la douleur lui vrille les tympans!
+          - un fusil automatique nerf chargé à bloc
+            Tu décides d'employer les grands moyens: une bonne salve de fléchettes Nerf! Le pirate est surpris et, apeuré, s'enfuit par le vélux et dégringole sur le toit avant de tomber sur la terasse. 
+            Bien, maintenant, allons libérer papa et maman!
+            -> libererParents
+
+beat libererParents
+  wait(3.0)
+  Après avoir repris des munitions, tu descends prudemment l'escalier. Tu espères que le bruit que vous avez fait la haut n'a pas alerté les autres pirates.
+  Mais en arrivant dans le couloirs, tu entend un bruit de vague, et le chant des mouettes... tu te précipites dans la chambre, et tu constates que quasiment tout les pirates
+  sont passé par la fenêtre en marchant sur une planche pour rejoindre un bateau ammaré devant la maison! Plus de rue, mais la mer a perte de vue...
+  wait(1.0)
+  D'un geste assuré tu tire sur le dernier pirate posté dans la chambre pour le mettre hors d'état de nuire, et tu t'élances sur la planche. profitant de la surprise des pirates, tu 
+  les arroses de flèches, ce qui a pour effet de les faire tituber et basculer par dessus bord! rapidement, l'espace autour de tes parents est dégagé, tu fonces desserer leur liens aux jambes et aux poignets.
+  Tu leur cries de te suivre, et, continuant a tirer sur les pirates qui s'approchent en grognant et hurlant, tu les escortes vers la planche qui sert de pont.
+
+  Vous arrivez tous à revenir dans la chambre, et au dernier moment, alors que le Capitaine à presque traversé, tu pousses la planche d'un coup sec et il tombe dans l'eau! Tu fermes les volets puis la fenêtre mais tu entends quand même 
+  ce fier capitaine hurler à son équipage qu'il ne sait pas nager... Ca devrait leur servir de leçon!
+
+  wait (1.0)
+
+  Soudain, un dernier pirate surgit de derrière la porte et te plante son épée dans le ventre! Ta vue s'obscurcit et devient flou...
+  wait(3.0)
+  reve_fait = true
+  -> FinReve

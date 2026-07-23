@@ -1,0 +1,19 @@
+
+character player
+  name: enfant
+  energie: 12
+
+character geant
+  name: Géant
+
+character papa
+  name: Papa
+
+character maman
+  name: Maman
+
+character inconnu
+  name: \???
+
+character chef_pirate
+  name: Capitaine Rouflaquette
