@@ -47,6 +47,14 @@ const CHOICE_DELAY := 0.5
 const TOP_PADDING := 30
 const BOTTOM_PADDING := 200
 
+# Sounds
+@onready var clic_choice: AudioStreamPlayer = $clicChoice
+
+@onready var sound_list = {
+	"ptitdej" : $Sfx/ptitdej,
+	"giant_walk" : $Sfx/giant_walk,
+	"giant_sigh" : $Sfx/giant_sigh,
+}
 
 func _ready() -> void:
 	font_regular = load("res://fonts/Outfit-Regular.ttf")
@@ -104,11 +112,15 @@ func _ready() -> void:
 	#     else:
 	#         provide.call(null)  # signals "not found"
 
-@onready var sound: AudioStreamPlayer = $Sound
 
-func _play_sound(interp: LorelineInterpreter, _args: Array, resolve: Callable) -> void:
-	sound.play()
-	await sound.finished
+func _play_sound(interp: LorelineInterpreter, args: Array, resolve: Callable) -> void:
+	print(args)
+	if args[0] in sound_list.keys():
+		var sound = sound_list[args[0]]
+		sound.play()
+		await sound.finished
+	else:
+		assert(false, "no sound called " + args[0]+" in sound list")
 	resolve.call()
 
 func _start_story() -> void:
@@ -204,6 +216,7 @@ func _on_choice(_interp: LorelineInterpreter, options: Array, select: Callable) 
 		#var btn := Button.new()
 		var btn = button_scene.instantiate()
 		btn.text = option["text"]
+		btn.pressed.connect(_on_button_pressed)
 		#btn.add_theme_font_override("font", font_regular)
 		#btn.add_theme_font_size_override("font_size", CHOICE_FONT_SIZE)
 		#btn.alignment = HORIZONTAL_ALIGNMENT_LEFT
@@ -411,3 +424,6 @@ func _gradient_bbcode(text: String) -> String:
 		var hex := "%02x%02x%02x" % [roundi(r), roundi(g), roundi(b)]
 		result += "[color=#" + hex + "]" + text[i] + "[/color]"
 	return result
+	
+func _on_button_pressed():
+	clic_choice.play()

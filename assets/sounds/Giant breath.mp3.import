@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b5lg16wdtas4d"
+path="res://.godot/imported/Giant breath.mp3-2f85287fe7690c8c164aa8307ce6fdd4.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/Giant breath.mp3"
+dest_files=["res://.godot/imported/Giant breath.mp3-2f85287fe7690c8c164aa8307ce6fdd4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

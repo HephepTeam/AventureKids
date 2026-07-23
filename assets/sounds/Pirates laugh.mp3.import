@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cxcmg5bnov4q8"
+path="res://.godot/imported/Pirates laugh.mp3-9b392da100dea7fdfed291e264073673.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/Pirates laugh.mp3"
+dest_files=["res://.godot/imported/Pirates laugh.mp3-9b392da100dea7fdfed291e264073673.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

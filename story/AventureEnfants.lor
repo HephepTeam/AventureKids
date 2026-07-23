@@ -60,7 +60,6 @@ beat Reveil
 
   choice
     Ne rien faire
-      play_sound()
       tu reconnais la voix de papa...
       -> PapaInsiste
 
@@ -176,7 +175,7 @@ beat PetitDej
 
     Tu n'as ${satiete == 0 ? "pas" : "plus"} faim, on range et on passe a la suite!
       -> choixRDC
-
+  play_sound("ptitdej")
   -> PetitDej
 
 

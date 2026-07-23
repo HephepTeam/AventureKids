@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://cwlmfg7sodlmb"]
 
 [ext_resource type="Script" uid="uid://bq644y5u4pvrd" path="res://scripts/loreline_manager.gd" id="1_script"]
-[ext_resource type="AudioStream" uid="uid://csmw40c220fb3" path="res://assets/sounds/wrong_answer.ogg" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://crq5bxho15sfq" path="res://scenes/choice_button.tscn" id="2_sugp2"]
+[ext_resource type="AudioStream" uid="uid://ddmqljk6qlt5d" path="res://assets/sounds/bong_001.ogg" id="4_jyhfs"]
+[ext_resource type="AudioStream" uid="uid://btl4rye4angry" path="res://assets/sounds/Ptitdej.mp3" id="4_tefeu"]
+[ext_resource type="AudioStream" uid="uid://c4sqfnghlobx2" path="res://assets/sounds/Giant walks.mp3" id="5_o6xl0"]
+[ext_resource type="AudioStream" uid="uid://b5lg16wdtas4d" path="res://assets/sounds/Giant breath.mp3" id="6_tipki"]
 
 [node name="Main" type="Control" unique_id=880900654]
 layout_mode = 3
@@ -52,5 +55,16 @@ theme_override_constants/separation = 0
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="Sound" type="AudioStreamPlayer" parent="." unique_id=1816570111]
-stream = ExtResource("2_0wfyh")
+[node name="clicChoice" type="AudioStreamPlayer" parent="." unique_id=1555695106]
+stream = ExtResource("4_jyhfs")
+
+[node name="Sfx" type="Node" parent="." unique_id=1945867735]
+
+[node name="ptitdej" type="AudioStreamPlayer" parent="Sfx" unique_id=1816570111]
+stream = ExtResource("4_tefeu")
+
+[node name="giant_walk" type="AudioStreamPlayer" parent="Sfx" unique_id=51770347]
+stream = ExtResource("5_o6xl0")
+
+[node name="giant_sigh" type="AudioStreamPlayer" parent="Sfx" unique_id=2123800515]
+stream = ExtResource("6_tipki")
