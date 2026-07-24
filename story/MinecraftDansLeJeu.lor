@@ -1,2 +1,49 @@
 beat CoinceDansLeJeu
-    ma foi, nous voilà coincé dans le jeu ma parole
+    Vous décidez de partir sur les règles de bases, sans modifications, la vraie expérience Minecraft. Le jeu se charge, et dehors tu vois qu'un gros nuage noir à obscurci le ciel.
+    Tu avais effectivement entendu gronder le tonerre avant mais tu n'y avais pas prêté attention...
+    Soudain, un éclair gigantesque zèbre le ciel, tout prêt de la maison, si prêt que ta vue deviens toute blanche un instant, et tu fermes les yeux, ébloui${player.name == "Justin" ? "": "e"}.
+    à côté de toi, tu entends Papa grommeler pour la même raison... mais quand tu réouvre les yeux, tout est noir autour de toi! La pièce est 
+    plongée dans l'obscurité, et tu es désorienté${player.name == "Justin" ? "": "e"}. 
+
+    choice
+      "Papa, tu es là?"
+        papa: Oui, juste à côté, tiens attrape ma main! L'éclair à du faire sauter les plombes, on va tâcher de trouver une lampe torche ou une bougie...
+
+      Attendre...
+        papa: $player.name, tu es là? Attrape ma main, je pense que les plombs on sautés suite à cet éclair, essayons de trouver une lampe ou une bougie!
+
+    Avec Papa, tu cherches à te repérer dans le noir. le touché de sa main est étrange, il doit serré trop fort, il est inquiet. Vous etiez sur le canapé à l'origine, mais une fois levé tu n'es plus vraiment sûr d'où il se trouve...
+    En vous dirigeant à l'opposé supposé du canapé, vous errez sur quelques mètres, surpris de ne pas finir par atteindre la table du salon. Soudain, tu aperçois
+    une lueur qui semble venir du bout d'un couloir? Tu supposes que c'est l'arrière cuisine, mais plus vous avancez, plus le lieu semble inconnu. Au bout de ce couloir, vous tombez
+    sur une porte en bois simple comportant une fenêtre à vitre fumée que tu n'avais jamais vu avant. Avec Papa, vous vous regardez, éclairés par cette seule lumière diffuse.
+
+    choice
+      Ouvrir la porte
+        Hors de question de revenir en arrière dans le noir, donc autant aller de l'avant. Tu attrapes la poignée. Elle est très anguleuse. Tu la tournes, un peu anxieu${player.name == "Justin" ? "x": "se"}, et tu pousses vers ce que tu penses être l'exterieur.
+
+      Demander à Papa d'ouvrir la porte
+        Papa: ok, allons-y, découvrons de quoi il retourne.
+
+        Papa saisi la poignée, la tourne et la pousse.
+
+    La lumière est brievement plus forte et tes yeux s'habitue. A la lumière seulement, car pour le reste, c'est purement de l'incrédulité: Tout le paysage est étrange,
+    avec des couleurs vive, des arbres espacé, aucun buissons... tu vois un lac pas loin, mais l'eau est complètement plate, pas une seul vaguelette à l'horizon.
+    Mais surtout, tout est CARRÉ ! Vous vouliez jouer à Minecraft, et bien il semble bien que vous soyez tombé dedans!
+
+    wait(1.5)
+
+    Tu te tournes vers Papa... il est carré aussi! Tu regardes tes mains... des cubes! Pas étonnant que prendre la main de Papa était désagréable!
+
+    Papa: $player.name! Tu es... cubique? On est dans Minecraft? Ça doit être l'éclair... mais qu'est-ce qu'on fait maintenant?
+
+    choice
+      On profite, on explore!
+        
+      On étudie la situation calmement
+        
+      On cherche comment rentrer chez nous!
+
+
+        // dans le noir a tatons on cherche l'arrière cuisine, on voit de la lumière, c'est une porte qui mèene a
+        //la plaine de minecraft, s'ensuit des péripéties a base de creeper et de construction, d'exploration de caverne pour fabvriquer un portail du neither
+        //pour repartir, ou pas, du monde de minecraft

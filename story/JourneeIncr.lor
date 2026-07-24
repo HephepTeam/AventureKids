@@ -14,8 +14,8 @@ beat JourneeIncr
             Papa dessine bien, mais c'est normal il a plus d'expérience! Il est très fier de tes dessins.
             -> JourneeIncr
         - Une partie de Minecraft
-            $papa et toi descendez au salon pour jouer à deux sur la Switch. //aspirée dans le jeu?
-            -> JourneeIncr
+            $papa et toi décidez de créer un nouveau serveur sur la même console, c'est plus sympa. 
+            -> CoinceDansLeJeu
         - un match de Rocket League en coopération if player.name == "Justin"
             $papa et toi descendez au salon pour jouer à deux, toi sur la PS5, lui sur son PC.
             -> JourneeIncr
