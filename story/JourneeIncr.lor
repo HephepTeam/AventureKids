@@ -173,15 +173,12 @@ beat fabricationAbriBoule
 beat FinCoucher
      Finalement, plus de peur que de mal! Rassuré${player.name == "Justin" ? "": "e"}, tu t'emmitoufles  sous la couette.
      La journée à été épuisante, tes paupières se ferment toutes seules! Bientôt tu rêves déjà du lendemain...
+    -> FIN
 
-     wait(3.0)
-     FIN
+beat FIN
+    wait(3.0)
+    FIN
 
-     Cette histoire t'as plus? As-tu essayé tous les choix? 
-
-     choice
-        Recommencer!
-          -> Start
-        Quitter
-          ->.
+    Cette histoire t'as plus? As-tu essayé tous les choix? 
+    ->.
       

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bcdhdry104xek"]
+
+[ext_resource type="Script" uid="uid://c8b3tha1co3yk" path="res://scripts/achievement_panel.gd" id="1_altby"]
+[ext_resource type="PackedScene" uid="uid://cppvwm7jyaxq" path="res://scenes/achievement_line.tscn" id="2_gun1d"]
+
+[node name="AchievementPanel" type="VBoxContainer" unique_id=930803764]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_altby")
+achievement_line = ExtResource("2_gun1d")

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dg5vsxou3aak4"]
+
+[ext_resource type="Script" uid="uid://ctjenvyg1fds6" path="res://scenes/Managers/globals.gd" id="1_waadl"]
+[ext_resource type="FontFile" uid="uid://fj4ylg5wcjg" path="res://fonts/Outfit-Regular.ttf" id="2_g555t"]
+[ext_resource type="FontFile" uid="uid://ulg84hqw5ilh" path="res://fonts/Outfit-SemiBold.ttf" id="3_m5uk0"]
+[ext_resource type="FontFile" uid="uid://mnhgo7uhmlao" path="res://fonts/Literata-Italic.ttf" id="4_v2u6g"]
+
+[node name="Globals" type="Node" unique_id=367808541]
+script = ExtResource("1_waadl")
+font_regular = ExtResource("2_g555t")
+font_semibold = ExtResource("3_m5uk0")
+font_italic = ExtResource("4_v2u6g")

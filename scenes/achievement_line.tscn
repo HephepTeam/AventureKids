@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cppvwm7jyaxq"]
+
+[ext_resource type="Texture2D" uid="uid://ctkidnjow6j4a" path="res://assets/square-check-big.png" id="1_fesm0"]
+[ext_resource type="Script" uid="uid://wkwpx58t3s5c" path="res://scenes/achievement_line.gd" id="1_k7xvo"]
+[ext_resource type="Texture2D" uid="uid://w0uj3itdivia" path="res://assets/x.png" id="3_j8lcd"]
+
+[node name="AchievementLine" type="HBoxContainer" unique_id=2085781945]
+alignment = 1
+script = ExtResource("1_k7xvo")
+OK_texture = ExtResource("1_fesm0")
+NOK_texture = ExtResource("3_j8lcd")
+
+[node name="Label" type="Label" parent="." unique_id=629341044]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaa"
+
+[node name="StateIcon" type="TextureRect" parent="." unique_id=1864737102]
+layout_mode = 2
+texture = ExtResource("1_fesm0")

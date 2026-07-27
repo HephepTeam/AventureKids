@@ -1,3 +1,7 @@
+TextureRect
+Label
+HBoxContainer
+VBoxContainer
 Node
 AudioStreamPlayer
 Button

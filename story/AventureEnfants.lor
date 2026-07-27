@@ -16,9 +16,8 @@ state
   brioche : false
   lait : false
   jdf : false
-  au_lit: true
-  fringue_sales: false
-  ptitDej: false
+  sorti_lit: false
+  ptit_dej: false
   vu_geant: false
   rendu_pipe: false
   jette_pipe: false
@@ -31,10 +30,9 @@ state
   vu_oiseau_colline: false
   vu_fourmi_tunnel : false
   vaincu_pirate: false
+  visite_minecraft: false
 
 
-
-// Entrer dans le café
 beat Start
 
   Narrateur: Bienvenue, $player, choisi ton personnage!
@@ -82,9 +80,7 @@ beat PapaInsiste
           -> Descend
 
 beat PapaMonte
-  Tu fais comprendre à $papa que tu es trop fatigué${player.name == "Justin" ? "" : "e"}, et comme il a l'habitude, il commence à monter l'escalier. Tu essai de
-  te faire ${player.name == "Justin" ? "le plus attendrissant possible" : "la plus mignonne possible"} et quand il arrive, tu lui dis que tu as une super idée, que ton
-  idée ça serait que personne n'aille travailler, qu'on pourrait simplement rester en pyjama et jouer toute la journée!
+  Tu fais comprendre à $papa que tu es trop fatigué${player.name == "Justin" ? "" : "e"}, et comme il a l'habitude, il commence à monter l'escalier. Tu essai de te faire ${player.name == "Justin" ? "le plus attendrissant possible" : "la plus mignonne possible"} et quand il arrive, tu lui dis que tu as une super idée, que ton idée ça serait que personne n'aille travailler, qu'on pourrait simplement rester en pyjama et jouer toute la journée!
 
   Au début, il n'a pas l'air d'accord...
   -> convaincrePapa
@@ -120,7 +116,7 @@ beat convaincrePapa
   //sinon, tout le monde redescend ensemble -> JournéeNorm
 
 beat Descend
-  au_lit = false
+  sorti_lit = true
   Tu rassemble toute tes forces et tu t'extrais du lit. La couverture est tout en vrac. Les yeux encore tout embrumés,
   sans même allumer la lumière, tu sors et tu t'engages dans l'escalier.
   wait(2.0)
@@ -129,13 +125,17 @@ beat Descend
 
 beat choixRDC
   choice
-    - Aller vers la chambre des parents
+    Aller vers la chambre des parents
       Tu te diriges vers la chambre de tes parents pour un réveil plus doux dans leur lit. Ils vont t'acceuillir à bras ouvert: ils adorent les calins!
       wait(1.0)
-      -> ParentsOtagePirates
+      test est: ${vaincu_pirate} , et ${ptit_dej}
+      if !vaincu_pirate && !ptit_dej
+        -> ParentsOtagePirates
+      else
+        -> ParentJourneeNormal
 
-    - Preparer ton petit déjeuner
-    -> PetitDej
+    Preparer ton petit déjeuner if !ptit_dej
+      -> PetitDej
 
 beat PetitDej
   if satiete == 0
@@ -148,34 +148,45 @@ beat PetitDej
     --
       Excellent, on continue?
 
-  ptitDej = true
+  
   choice
     - Manger des céréales if satiete  < 8
+      ptit_dej = true
       satiete += 3
 
     - Manger de la brioche if satiete  < 8
+      ptit_dej = true
       satiete += 3
 
     - Manger du jambon if satiete  < 8
+      ptit_dej = true
       satiete += 3
 
     - Manger un yaourt if satiete  < 8
+      ptit_dej = true
       satiete += 3
 
     - Manger un éclair au chocolat if satiete  < 8
+      ptit_dej = true
       satiete += 6
 
     - Manger un magnum double chocolat if satiete  < 8
+      ptit_dej = true
       satiete += 6
 
     - Boire du lait if satiete  < 8
+      ptit_dej = true
       satiete += 2
+
     - Boire du jus de fruits if satiete  < 8
+      ptit_dej = true
       satiete += 2
 
     Tu n'as ${satiete == 0 ? "pas" : "plus"} faim, on range et on passe a la suite!
+      if satiete == 0
+        ptit_dej = false
       -> choixRDC
-  play_sound("ptitdej")
+  play_sound("ptit_dej")
   -> PetitDej
 
 
@@ -183,3 +194,27 @@ beat FinReve
   ... tu ouvres yeux! Ouf, c'est le plafond de ta chambre... Ce n'était qu'un rêve!
   -> PapaInsiste
 
+
+beat ParentJourneeNormal
+  Tu rejoins tes parents dans leur chambre et profite quelques minutes, le temps de vraiment te réveiller. Puis c'est rapidement l'heure de s'habiller et de se préparer pour l'école. 
+
+  if player.name == "Justin"
+    Tu prends le bus pour le collège, le ciel est presque dégagé, il fait bon. 
+    ...
+    La journée se déroule comme une journée normale au collège, rien de bien fou.
+    ...
+    Une fois la journée finie, tu rentre à la maison par le bus. Tu fais tes devoirs, et joue un peu à la console.
+    Tu manges avec tes parents, puis tu monte écouter un peu la radio en faisant des points à relier.
+    Finalement, tu t'endors paisiblement.
+
+    -> FIN
+  else
+    Papa te dépose à l'école en voiture, avec ton cartable bien rempli sur le dos. Le ciel est presque bleu, il y'a quelque nuages.
+    ...
+    La journée se dérule comme une journée normale à l'école, rien de bien fou.
+    ...
+    Une fois la journée finie, Maman viens te chercher au périscolaire. Tu à déjà fait tes devoir, alors tu peux jouer un peu à la console.
+    Tu manges avec tes parents, puis tu monte écouter un peu la Flam' en dessinant, assise à ton bureau.
+    Finalement, tu t'endors paisiblement.
+
+    -> FIN

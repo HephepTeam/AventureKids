@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bq644y5u4pvrd" path="res://scripts/loreline_manager.gd" id="1_script"]
 [ext_resource type="PackedScene" uid="uid://crq5bxho15sfq" path="res://scenes/choice_button.tscn" id="2_sugp2"]
+[ext_resource type="PackedScene" uid="uid://bcdhdry104xek" path="res://scenes/achievement_panel.tscn" id="3_o6xl0"]
 [ext_resource type="AudioStream" uid="uid://ddmqljk6qlt5d" path="res://assets/sounds/bong_001.ogg" id="4_jyhfs"]
 [ext_resource type="AudioStream" uid="uid://btl4rye4angry" path="res://assets/sounds/Ptitdej.mp3" id="4_tefeu"]
 [ext_resource type="AudioStream" uid="uid://c4sqfnghlobx2" path="res://assets/sounds/Giant walks.mp3" id="5_o6xl0"]
@@ -16,6 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_script")
 button_scene = ExtResource("2_sugp2")
+achievement_panel_scene = ExtResource("3_o6xl0")
 
 [node name="Background" type="ColorRect" parent="." unique_id=1840469871]
 layout_mode = 1
