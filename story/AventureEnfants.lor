@@ -88,7 +88,7 @@ beat PapaMonte
   -> convaincrePapa
 
 beat convaincrePapa
-  Peut être en insistante un peu plus...
+  Peut être en insistant un peu plus...
 
   choice
     "Allez $papa, s'il te plaaaaaaaaaaait!"
@@ -114,15 +114,12 @@ beat convaincrePapa
       $papa approuve, et descend le premier.
       -> Descend
 
-  //papa monte, et on peut avoir le choix de le convaincre de rester pour jouer aux échecs ou aux légo, et faire des dessins. Personne ne va travailler -> JournéeIncr
-  //sinon, tout le monde redescend ensemble -> JournéeNorm
-
 beat Descend
   sorti_lit = true
-  Tu rassemble toute tes forces et tu t'extrais du lit. La couverture est tout en vrac. Les yeux encore tout embrumés,
+  Tu rassembles toutes tes forces et tu t'extrais du lit. La couverture est tout en vrac. Les yeux encore tout embrumés,
   sans même allumer la lumière, tu sors et tu t'engages dans l'escalier.
   wait(2.0)
-  Arrivé en bas, Papa n'est pas dans le salon. Deux choix s'offre à toi:
+  Arrivé en bas, Papa n'est pas dans le salon. Deux choix s'offrent à toi:
   -> choixRDC
 
 beat choixRDC
@@ -130,13 +127,12 @@ beat choixRDC
     Aller vers la chambre des parents
       Tu te diriges vers la chambre de tes parents pour un réveil plus doux dans leur lit. Ils vont t'acceuillir à bras ouvert: ils adorent les calins!
       wait(1.0)
-      test est: ${vaincu_pirate} , et ${ptit_dej}
       if !vaincu_pirate && !ptit_dej
         -> ParentsOtagePirates
       else
         -> ParentJourneeNormal
 
-    Preparer ton petit déjeuner if !ptit_dej
+    Préparer ton petit déjeuner if !ptit_dej
       -> PetitDej
 
 beat PetitDej
@@ -198,21 +194,25 @@ beat FinReve
 
 
 beat ParentJourneeNormal
-  Tu rejoins tes parents dans leur chambre et profite quelques minutes, le temps de vraiment te réveiller. Puis c'est rapidement l'heure de s'habiller et de se préparer pour l'école. 
+  Tu rejoins tes parents dans leur chambre et tu profites quelques minutes, le temps de vraiment te réveiller. Puis c'est rapidement l'heure de s'habiller et de se préparer pour l'école. 
 
   if player.name == "Justin"
     Tu prends le bus pour le collège, le ciel est presque dégagé, il fait bon. 
     ...
+    wait(1.0)
     La journée se déroule comme une journée normale au collège, rien de bien fou.
     ...
+    wait(1.0)
     Une fois la journée finie, tu rentre à la maison par le bus. Tu fais tes devoirs, et joue un peu à la console.
     Tu manges avec tes parents, et puis...
     -> LeCoucher
   else
-    Papa te dépose à l'école en voiture, avec ton cartable bien rempli sur le dos. Le ciel est presque bleu, il y'a quelque nuages.
+    Papa te dépose à l'école en voiture, avec ton cartable bien rempli sur le dos. Le ciel est presque bleu, il y'a quelques nuages.
     ...
-    La journée se dérule comme une journée normale à l'école, rien de bien fou.
+    wait(1.0)
+    La journée se déroule comme une journée normale à l'école, rien de bien fou.
     ...
+    wait(1.0)
     Une fois la journée finie, Maman viens te chercher au périscolaire. Tu à déjà fait tes devoir, alors tu peux jouer un peu à la console.
     Tu manges avec tes parents, et puis...
     -> LeCoucher

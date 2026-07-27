@@ -3,23 +3,18 @@ beat Reve
 
   play_sound("roof_crush")
   Mais tu es bien vite à nouveau réveillé${player.name == "Justin" ? "" : "e"}, en sursaut, par un terrible craquement! La lumière jaillit brusquement dans ta chambre! 
-  ${player.name == "Justin" ? "Effrayé" : "Effrayée"}, tu te cache sous ta couverture. Tu entends des débris tomber sur le parquet, 
-  mais le bruit fini par cesser, et tu entend le vent... un vent saccadé, comme une sorte de respiration?
+  ${player.name == "Justin" ? "Effrayé" : "Effrayée"}, tu te caches sous ta couverture. Tu entends des débris tomber sur le parquet, mais le bruit fini par cesser, et tu entend le vent... un vent saccadé, comme une sorte de respiration?
 
   play_sound("giant_sigh")
   choice
     Sortir de dessous la couette
-      Doucement, tu sors ta tête de sous ta couverture... le bruit de respiration vient du côté
-      de la fenêtre... discrètement, tu jette un oeil dans cette direction. Deux yeux gigantesques te renvoient ton regard!
+      Doucement, tu sors ta tête de sous ta couverture... le bruit de respiration vient du côté de la fenêtre... discrètement, tu jette un oeil dans cette direction. Deux yeux gigantesques te renvoient ton regard!
       -> ReveGeant
       
     Rester caché${player.name == "Justin" ? "" : "e"}
-      Pas question de sortir! Ce bruit te fait trop peur! Tu te fais aussi ${player.name == "Justin" ? "discret" : "discrète"} que possible,
-      et au bout d'un moment qui te parait durer des heures, le bruit de vent faiblit et semble s'éloigner. Les volets du rez-de-chaussée claquent comme quand 
-      la tempête souffle certains soir d'orages. Lorsque tout est enfin calme, tu fini par sortir la tête...
+      Pas question de sortir! Ce bruit te fait trop peur! Tu te fais aussi ${player.name == "Justin" ? "discret" : "discrète"} que possible, et au bout d'un moment qui te parait durer des heures, le bruit de vent faiblit et semble s'éloigner. Les volets du rez-de-chaussée claquent comme quand la tempête souffle certains soir d'orages. Lorsque tout est enfin calme, tu fini par sortir la tête...
       wait(2.0)
-      Tu constates qu'il fait beau et qu'il y'a rien de dangereux à l'horizon! En fait, il n'y a même plus de plafond! le toit à été arraché et ne restent
-      que les murs verticaux de ta chambre encore debout! le sol est jonché de gravat et de morceaux de bois. Qu'a-t-il bien pu se passer?
+      Tu constates qu'il fait beau et qu'il y'a rien de dangereux à l'horizon! En fait, il n'y a même plus de plafond! le toit à été arraché et ne restent que les murs verticaux de ta chambre encore debout! le sol est jonché de gravat et de morceaux de bois. Qu'a-t-il bien pu se passer?
       wait(2.0)
       Que décides-tu de faire?
       choice
@@ -31,15 +26,14 @@ beat Reve
 beat ReveGeant
     vu_geant = true
     Qu'est-ce que c'est que ça? un géant? Ses gros doigts tiennent le toit de la maison légèrement surélévé pour qu'il puisse regarder à l'intérieur de ta chambre.
-    Tu peut ne peut même pas voir son nez en entier! Il a de gros sourcils épais, et des yeux d'un bleu lagon. Il a l'air d'un homme d'une trentaine d'années, mais en 1000 
-    fois plus grand! Vous vous observez pendant un temps infini... quand soudain...
+    Tu peut ne peut même pas voir son nez en entier! Il a de gros sourcils épais, et des yeux d'un bleu lagon. Il a l'air d'un homme d'une quarantaine d'années, mais en 1000 fois plus grand! Vous vous observez pendant un temps infini... quand soudain...
 
     choice
         ...tu décides de prendre la parole.
           Tu prends ton courage à deux mains et tu t'adresses à lui et lui demandes pourquoi il à cassé ta maison et t'as réveillé (c'est vrai quoi, d'abord?).
           Il répond:
 
-          geant: Ah, désolé, vu l'heure qu'il est je pensais que tu serais à l'école! désolé ${player.name == "Justin" ? "petit" : "petite"}. J'ai un soucis, est-ce que tu peux m'aider?
+          Geant: Ah, désolé, vu l'heure qu'il est je pensais que tu serais à l'école! désolé ${player.name == "Justin" ? "petit" : "petite"}. J'ai un soucis, est-ce que tu peux m'aider?
 
           choice
               Ecouter le géant exposer son problème
@@ -49,13 +43,11 @@ beat ReveGeant
               -> ReveDodoAgain
 
         ...il se décide à prendre la parole.
-        geant: Bonjour ${player.name == "Justin" ? "petit" : "petite"}, tu n'aurais pas vu des lutins farceurs? Il m'ont dérobés ma pipe!
+        Geant: Bonjour ${player.name == "Justin" ? "petit" : "petite"}, tu n'aurais pas vu des lutins farceurs? Il m'ont dérobés ma pipe!
         -> ReveLutinsFarceurs
 
 beat ReveLutinsFarceurs
-  geant: Vois-tu, les lutins farceurs se sont introduit chez moi pendant que je dormais, et c'est à ce moment qu'ils m'ont pris ma vieille pipe! Je suis sûr que c'est eux,
-    l'un d'eux a perdu son petit chapeau rouge. J'ai sorti ma loupe et j'ai suivi leur petite traces de pas jusqu'a ta maison, mais je ne peux pas y entrer, forcément. Tu veux bien 
-    aller voir en bas si tu les vois? 
+  Geant: Vois-tu, les lutins farceurs se sont introduit chez moi pendant que je dormais, et c'est à ce moment qu'ils m'ont pris ma vieille pipe! Je suis sûr que c'est eux, l'un d'eux a perdu son petit chapeau rouge. J'ai sorti ma loupe et j'ai suivi leur petite traces de pas jusqu'a ta maison, mais je ne peux pas y entrer, forcément. Tu veux bien aller voir en bas si tu les vois? 
 
   Il a l'air sympa ce géant! Tu pourrais l'aider... mais est-ce que c'est risqué? Que décides-tu de faire?
 
@@ -81,6 +73,7 @@ beat ReveDescend
 
   
         Tendre l'oreille...
+            play_sound("gnome_steps")
             Tu te fais aussi ${player.name == "Justin" ? "discret" : "discrète"} que possible et tu écoutes les bruits ambiants du salons... Tu discèrnes des petits chuchotement qui viennent du canapé. Tes yeux s'habituent a la pénombre,
             et tu distingue des petits chapeaux pointus qui s'agitent sur la banquette. A pas de loup, tu t'approches... 
             if vu_geant
@@ -96,6 +89,7 @@ beat ReveDescend
            
           
                 Tu es assez prêt... tu hurles pour leur faire peur!
+                    play_sound("gnome_panic")
                     BOUH!, tu hurles! Et c'est la panique chez les lutins, tu entends leur petits pas partout dans le salon, ils se cognent contre tes jambes, entre eux, et ça fait "POUINK" a chaque impacte!
                     Rapidement tu reconnais un autre bruit, c'est la chatière de Valjean et Leev! Ils s'enfuient! Tu vois encore la pipe géante sur le canapé. 
                     if vu_geant
@@ -104,15 +98,14 @@ beat ReveDescend
                     -> ReveJeterPipe
 
 beat ReveJeterPipe
-  Qu'est-ce que tu vas bien pouvoir faire d'une pipe géante? Que vont dire tes parents? Utilisant toutes tes forces, tu la traines dehors, au niveau de la ou Papa met les poubelles le mercredi soir. Le camion va probablement l'emmener! ${player.name == "Justin" ? "Fier" : "Fière"} de toi, tu mets un moment à réaliser que le soleil commence déjà à se coucher... Tu regardes l'heure: déjà 19h30! Tu avais effectivement fait une sacrée grasse matinée. Tu te sens soudainement très fatigué${player.name == "Justin" ? "" : "e"}... et tu te glisses dans ton lit pour t'y reposer avec un livre.
+  Qu'est-ce que tu vas bien pouvoir faire d'une pipe géante? Que vont dire tes parents? Utilisant toutes tes forces, tu la traines dehors, au niveau de là ou Maman et Papa mettent les poubelles le mercredi soir. Le camion va probablement l'emmener! ${player.name == "Justin" ? "Fier" : "Fière"} de toi, tu mets un moment à réaliser que le soleil commence déjà à se coucher... Tu regardes l'heure: déjà 19h30! Tu avais effectivement fait une sacrée grasse matinée. Tu te sens soudainement très fatigué${player.name == "Justin" ? "" : "e"}... et tu te glisses dans ton lit pour t'y reposer avec un livre.
   Mais rapidement, tes paupières te semblent très lourde, et tu fini par t'endormir...
   -> FinReve
 
 beat ReveRendrePipe
   rendu_pipe = true
-  Tu ouvres les volets, et tu traines difficilement et lentement l'énorme pipe en bois peinte dans le jardin, aux pieds du géants. En t'attendant, il t'explique qu'il a réparé le toit comme il a pu. Ouf, Papa et Maman ne devraient se rendre compte de rien.
+  Tu ouvres les volets, et tu traines difficilement et lentement l'énorme pipe en bois peinte dans le jardin, aux pieds du géant. Il t'explique qu'il a réparé le toit comme il a pu en t'attendant. Ouf, Papa et Maman ne devraient se rendre compte de rien.
   Il récupère sa pipe, essai de l'essuyer un peu avec sa chemise en découvrant la peinture, hausse les épaules et la range dans sa poche. Il te dit au revoir, te fait un signe de la main, et se dirige vers le fond du jardin puis enjambe facilement la clôture.
-  wait(1.0)
   play_sound("giant_walk")
   Tu le suit un peu du regard, puis tu remontes dans ta chambre pour continuer à l'observer partir en direction de Gasny. Rapidement, il passe derrière la colline et tu ne le vois plus.
   wait(1.0)
@@ -123,13 +116,12 @@ beat ReveRendrePipe
 beat ReveLutinLumiere
   Tu tends le bras pour toucher l'interrupteur... *clic* la lumière se fait, tu es un peu ébloui${player.name == "Justin" ? "" : "e"}... Lorsque tu arrives enfin à ouvrir les paupières,
   tu aperçois une dizaine d'yeux mi-clos, luttant également pour s'ouvrir... les lutins! Rapidement ils reprennent leurs esprits, et crient entre eux dans une langue inconnue. Tu constates qu'ils sont en train de rependre une pipe géante, sur le canapé du salon!
-  Le temps que tu réfléchisse à quoi faire, 5 de ces chapardeurs s'avancent vers toi avec l'aspirateur du salon et le pointe dans ta direction! Tu ne comprends pas leur language, mais sur les ordres du plus gros, un autre lutin
-  branche le câble electrique tandis que les autres te tiennent en joues. Amusé, tu les regardes faire, tu ne crains rien! Mais le chef lutin emet un son plus fort et plus sec, et l'un des lutin subordonné lance la machine.
-  wait(1.0)
+  Le temps que tu réfléchisse à quoi faire, 5 de ces chapardeurs s'avancent vers toi avec l'aspirateur du salon et le pointe dans ta direction! Tu ne comprends pas leur language, mais sur les ordres du plus gros, un autre lutin branche le câble electrique tandis que les autres te tiennent en joues. Amusé, tu les regardes faire, tu ne crains rien! Mais le chef lutin emet un son plus fort et plus sec, et l'un des lutin subordonné lance la machine.
+  play_sound("aspiro")
   tu sens directement que quelque chose cloches, car ton pyjama est doucement aspiré vers l'appareil... puis c'est au tour de ton bras! L'attraction est tel que tes pieds peinent à te tenir debout, tu resistes, mais finalement tu es
-  attiré${player.name == "Justin" ? "" : "e"} par l'aspirateur! Les lutins hurlent de joies et scandent des chants dont tu ne comprends pas la signification, a part peut-être que ça parles de victoire...
+  attiré${player.name == "Justin" ? "" : "e"} par l'aspirateur! Les lutins hurlent de joies et scandent des chants dont tu ne comprends pas la signification, à part peut-être que ça parle de victoire...
   Tu luttes de toute tes forces mais ta main passe déjà dans le tuyau, en se déformant comme du caoutchouc, sans douleur, et PLOP! te voilà aspiré${player.name == "Justin" ? "" : "e"} complètement...
-  wait(1.0)
+  play_sound("toboggan")
   -> ReveToboggan
 
 beat ReveDodoAgain
