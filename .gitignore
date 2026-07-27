@@ -1,0 +1,10 @@
+.godot/
+.godot/editor/
+.import/
+export.cfg
+.mono/
+data_*/
+*.tmp/
+build/
+/tools
+/deploy
