@@ -18,5 +18,7 @@ func set_text(text: String):
 func set_state(state: bool):
 	if state:
 		state_icon.texture = OK_texture
+		state_icon.modulate = Color(0.47, 0.808, 0.0, 1.0)
 	else:
 		state_icon.texture = NOK_texture
+		state_icon.modulate = Color(0.998, 0.29, 0.239, 1.0)

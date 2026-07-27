@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://ccyw4hecu16ia"]
+
+[ext_resource type="Script" uid="uid://c4amsbwu7a7l3" path="res://scenes/menu_screen.gd" id="1_e6vgv"]
+[ext_resource type="PackedScene" uid="uid://crq5bxho15sfq" path="res://scenes/choice_button.tscn" id="2_gld7y"]
+[ext_resource type="FontFile" uid="uid://ulg84hqw5ilh" path="res://fonts/Outfit-SemiBold.ttf" id="3_sm2ni"]
+[ext_resource type="AudioStream" uid="uid://ddmqljk6qlt5d" path="res://assets/sounds/bong_001.ogg" id="4_0m60l"]
+
+[node name="Menu" type="Control" unique_id=880900654]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e6vgv")
+button_scene = ExtResource("2_gld7y")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1840469871]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1523538, 0.19058138, 0.25750363, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Background" unique_id=475320104]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1344.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 40
+
+[node name="OutputTable" type="HBoxContainer" parent="Background/MarginContainer" unique_id=795042000]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ContentColumn" type="VBoxContainer" parent="Background/MarginContainer/OutputTable" unique_id=308305364]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 60
+
+[node name="KeeperColumn" type="Control" parent="Background/MarginContainer/OutputTable" unique_id=1597931612]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Titre" type="Label" parent="Background" unique_id=1242698443]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -880.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.813)
+theme_override_constants/shadow_offset_x = 16
+theme_override_constants/shadow_offset_y = 16
+theme_override_fonts/font = ExtResource("3_sm2ni")
+theme_override_font_sizes/font_size = 126
+text = "l'incroyable journée"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="clicChoice" type="AudioStreamPlayer" parent="." unique_id=1555695106]
+stream = ExtResource("4_0m60l")

@@ -34,3 +34,8 @@ const CHOICE_BG_KEPT := Color("e33c00cc")
 
 #gameplay
 var retry = false
+
+
+func fade_music():
+	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+	tween.tween_property($music, "volume_db", -80.0, 5.0)

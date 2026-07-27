@@ -55,6 +55,7 @@ beat Reveil
   Depuis un sommeil profond, tu entends une voix loitaine...
 
   inconnu: $player, c'est l'heure de se réveiller! Debout ${player.name == "Justin" ? "mon chéri!" : "ma chérie!"}
+  play_sound("appel_papa")
 
   choice
     Ne rien faire
@@ -66,6 +67,7 @@ beat Reveil
 
 beat PapaInsiste
       Papa: $player! Debout! Il est l'heure ${player.name == "Justin" ? "mon grand!" : "ma grande!"}
+      play_sound("appel_papa")
       choice
         ... if reve_fait != true
           Tu ne bouges toujours pas. Tu fini par te rendormir...
@@ -204,17 +206,13 @@ beat ParentJourneeNormal
     La journée se déroule comme une journée normale au collège, rien de bien fou.
     ...
     Une fois la journée finie, tu rentre à la maison par le bus. Tu fais tes devoirs, et joue un peu à la console.
-    Tu manges avec tes parents, puis tu monte écouter un peu la radio en faisant des points à relier.
-    Finalement, tu t'endors paisiblement.
-
-    -> FIN
+    Tu manges avec tes parents, et puis...
+    -> LeCoucher
   else
     Papa te dépose à l'école en voiture, avec ton cartable bien rempli sur le dos. Le ciel est presque bleu, il y'a quelque nuages.
     ...
     La journée se dérule comme une journée normale à l'école, rien de bien fou.
     ...
     Une fois la journée finie, Maman viens te chercher au périscolaire. Tu à déjà fait tes devoir, alors tu peux jouer un peu à la console.
-    Tu manges avec tes parents, puis tu monte écouter un peu la Flam' en dessinant, assise à ton bureau.
-    Finalement, tu t'endors paisiblement.
-
-    -> FIN
+    Tu manges avec tes parents, et puis...
+    -> LeCoucher

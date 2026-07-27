@@ -4,9 +4,18 @@
 [ext_resource type="PackedScene" uid="uid://crq5bxho15sfq" path="res://scenes/choice_button.tscn" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://bcdhdry104xek" path="res://scenes/achievement_panel.tscn" id="3_o6xl0"]
 [ext_resource type="AudioStream" uid="uid://ddmqljk6qlt5d" path="res://assets/sounds/bong_001.ogg" id="4_jyhfs"]
-[ext_resource type="AudioStream" uid="uid://btl4rye4angry" path="res://assets/sounds/Ptitdej.mp3" id="4_tefeu"]
-[ext_resource type="AudioStream" uid="uid://c4sqfnghlobx2" path="res://assets/sounds/Giant walks.mp3" id="5_o6xl0"]
+[ext_resource type="AudioStream" uid="uid://blf06gadcoaen" path="res://assets/sounds/Ptitdej_cronch.mp3" id="5_tipki"]
+[ext_resource type="AudioStream" uid="uid://tf6qkmv4psrt" path="res://assets/sounds/AppelPapa.mp3" id="6_85g3d"]
 [ext_resource type="AudioStream" uid="uid://b5lg16wdtas4d" path="res://assets/sounds/Giant breath.mp3" id="6_tipki"]
+[ext_resource type="AudioStream" uid="uid://bnh4ghgkcggq7" path="res://assets/sounds/roof_crush.mp3" id="7_eb6dy"]
+[ext_resource type="AudioStream" uid="uid://b45qpvkvtssjn" path="res://assets/sounds/Gnome panic.mp3" id="8_tipki"]
+[ext_resource type="AudioStream" uid="uid://ctpohm5o4k2r1" path="res://assets/sounds/geant_part.mp3" id="8_trceg"]
+[ext_resource type="AudioStream" uid="uid://ddch8s1ydjpws" path="res://assets/sounds/aspiro.mp3" id="10_ya4ey"]
+[ext_resource type="AudioStream" uid="uid://bwc3oaktdjdct" path="res://assets/sounds/Gnome_ steps.mp3" id="11_eb6dy"]
+[ext_resource type="AudioStream" uid="uid://c5srcyygn0bf2" path="res://assets/sounds/Weird bird squak.mp3" id="13_jbj1t"]
+[ext_resource type="AudioStream" uid="uid://cdj7dl4hbrt23" path="res://assets/sounds/toboggan.mp3" id="13_trceg"]
+[ext_resource type="AudioStream" uid="uid://n5367mjyapv8" path="res://assets/sounds/grumble.mp3" id="14_a8y0u"]
+[ext_resource type="AudioStream" uid="uid://cy82yf4sc0y" path="res://assets/sounds/ghost.mp3" id="16_muem4"]
 
 [node name="Main" type="Control" unique_id=880900654]
 layout_mode = 3
@@ -63,10 +72,37 @@ stream = ExtResource("4_jyhfs")
 [node name="Sfx" type="Node" parent="." unique_id=1945867735]
 
 [node name="ptitdej" type="AudioStreamPlayer" parent="Sfx" unique_id=1816570111]
-stream = ExtResource("4_tefeu")
+stream = ExtResource("5_tipki")
+
+[node name="appel_papa" type="AudioStreamPlayer" parent="Sfx" unique_id=2124219998]
+stream = ExtResource("6_85g3d")
+
+[node name="roof_crush" type="AudioStreamPlayer" parent="Sfx" unique_id=430293965]
+stream = ExtResource("7_eb6dy")
 
 [node name="giant_walk" type="AudioStreamPlayer" parent="Sfx" unique_id=51770347]
-stream = ExtResource("5_o6xl0")
+stream = ExtResource("8_trceg")
 
 [node name="giant_sigh" type="AudioStreamPlayer" parent="Sfx" unique_id=2123800515]
 stream = ExtResource("6_tipki")
+
+[node name="gnome_panic" type="AudioStreamPlayer" parent="Sfx" unique_id=1765934487]
+stream = ExtResource("8_tipki")
+
+[node name="gnome_aspiro" type="AudioStreamPlayer" parent="Sfx" unique_id=1764428294]
+stream = ExtResource("10_ya4ey")
+
+[node name="gnome_pas" type="AudioStreamPlayer" parent="Sfx" unique_id=380714148]
+stream = ExtResource("11_eb6dy")
+
+[node name="weird_bird" type="AudioStreamPlayer" parent="Sfx" unique_id=338264397]
+stream = ExtResource("13_jbj1t")
+
+[node name="toboggan" type="AudioStreamPlayer" parent="Sfx" unique_id=27417738]
+stream = ExtResource("13_trceg")
+
+[node name="grumble" type="AudioStreamPlayer" parent="Sfx" unique_id=1837990364]
+stream = ExtResource("14_a8y0u")
+
+[node name="ghost" type="AudioStreamPlayer" parent="Sfx" unique_id=308080264]
+stream = ExtResource("16_muem4")

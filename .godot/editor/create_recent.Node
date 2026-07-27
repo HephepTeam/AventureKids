@@ -1,7 +1,7 @@
-TextureRect
+AudioStreamPlayer
 Label
+Button
+TextureRect
 HBoxContainer
 VBoxContainer
 Node
-AudioStreamPlayer
-Button

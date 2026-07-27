@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://c5os2mdnbd7d4"]
-
-[ext_resource type="Script" uid="uid://dsbpub0dq5d75" path="res://save_test.gd" id="1_m2y45"]
-
-[node name="SaveTest" type="Node" unique_id=2068967609]
-script = ExtResource("1_m2y45")

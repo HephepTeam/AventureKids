@@ -25,9 +25,18 @@ var bottom_spacer: Control
 @onready var clic_choice: AudioStreamPlayer = $clicChoice
 
 @onready var sound_list = {
+	"appel_papa" : $Sfx/appel_papa,
 	"ptit_dej" : $Sfx/ptitdej,
+	"roof_crush": $Sfx/roof_crush,
 	"giant_walk" : $Sfx/giant_walk,
 	"giant_sigh" : $Sfx/giant_sigh,
+	"gnome_panic" : $Sfx/gnome_panic,
+	"gnome_aspiro" : $Sfx/gnome_aspiro,
+	"gnome_steps" : $Sfx/gnome_pas,
+	"weird_bird" : $Sfx/weird_bird,
+	"toboggan": $Sfx/toboggan,
+	"grumble" : $Sfx/grumble
+	
 }
 
 # paths
@@ -70,12 +79,14 @@ func _ready() -> void:
 	var scroll_bg := StyleBoxEmpty.new()
 	scrollbar.add_theme_stylebox_override("scroll", scroll_bg)
 
+	await get_tree().create_timer(1.0).timeout
 
 	options = LorelineOptions.new()
 	options.set_async_function("play_sound", _play_sound)
 	# parse() returns a Signal you can await — it fires `completed(script)`
 	# once parsing + all imports have resolved.
 	var script = await loreline.parse("res://story/AventureEnfants.lor")
+	
 	if script == null:
 		var err := "Loreline sample: failed to parse res://story/CoffeeShop.lor"
 		push_error(err)
@@ -91,6 +102,7 @@ func _play_sound(interp: LorelineInterpreter, args: Array, resolve: Callable) ->
 	print(args)
 	if args[0] in sound_list.keys():
 		var sound = sound_list[args[0]]
+		sound.pitch_scale = randf_range(0.9,1.1)
 		sound.play()
 		await sound.finished
 	else:
@@ -127,6 +139,7 @@ func _on_dialogue(interp: LorelineInterpreter, character: String, text: String, 
 	saved_data.append(interp.save_state())
 	saved_data.append(paths)
 	SaveManager.save_to_file(saved_data)
+
 	
 	# Add spacing before new dialogue if content exists (> 2 because of top_spacer + bottom_spacer)
 	if content_column.get_child_count() > 2:
@@ -190,7 +203,7 @@ func _on_choice(_interp: LorelineInterpreter, options: Array, select: Callable) 
 	var choices_container := VBoxContainer.new()
 	choices_container.add_theme_constant_override("separation", Globals.CHOICE_SPACING)
 	_add_content(choices_container)
-
+	Globals.fade_music()	
 	for i in range(options.size()):
 		var option: Dictionary = options[i]
 		var enabled: bool = option["enabled"]
@@ -201,38 +214,6 @@ func _on_choice(_interp: LorelineInterpreter, options: Array, select: Callable) 
 		var btn = button_scene.instantiate()
 		btn.text = option["text"]
 		btn.pressed.connect(_on_button_pressed)
-		#btn.add_theme_font_override("font", font_regular)
-		#btn.add_theme_font_size_override("font_size", CHOICE_FONT_SIZE)
-		#btn.alignment = HORIZONTAL_ALIGNMENT_LEFT
-		#btn.autowrap_mode = TextServer.AUTOWRAP_WORD
-
-		## Style the button
-		#var style := StyleBoxFlat.new()
-		#style.bg_color = CHOICE_BG
-		#style.border_color = BORDER_COLOR
-		#style.set_border_width_all(2)
-		#style.set_corner_radius_all(32)
-		#style.set_content_margin_all(20)
-		#style.content_margin_left = 28
-		#style.content_margin_right = 28
-		#btn.add_theme_stylebox_override("normal", style)
-#
-		## Hover style
-		#var hover_style := style.duplicate()
-		#hover_style.border_color = BORDER_HOVER
-		#hover_style.bg_color = GLOW_BG
-		#btn.add_theme_stylebox_override("hover", hover_style)
-#
-		## Pressed style
-		#var pressed_style := style.duplicate()
-		#pressed_style.border_color = ACCENT_PURPLE
-		#pressed_style.bg_color = Color(GLOW_BG.r, GLOW_BG.g, GLOW_BG.b, 0.2)
-		#btn.add_theme_stylebox_override("pressed", pressed_style)
-#
-		## Disabled style (same dimensions as normal to prevent layout shift on disable)
-		#var disabled_style := style.duplicate()
-		#btn.add_theme_stylebox_override("disabled", disabled_style)
-		#btn.add_theme_color_override("font_disabled_color", TEXT_MUTED)
 
 		# Text colors
 		btn.add_theme_color_override("font_color", Globals.TEXT_COLOR)

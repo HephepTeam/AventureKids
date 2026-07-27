@@ -1,10 +1,12 @@
 beat Reve
   reve_fait = true
 
+  play_sound("roof_crush")
   Mais tu es bien vite à nouveau réveillé${player.name == "Justin" ? "" : "e"}, en sursaut, par un terrible craquement! La lumière jaillit brusquement dans ta chambre! 
   ${player.name == "Justin" ? "Effrayé" : "Effrayée"}, tu te cache sous ta couverture. Tu entends des débris tomber sur le parquet, 
   mais le bruit fini par cesser, et tu entend le vent... un vent saccadé, comme une sorte de respiration?
 
+  play_sound("giant_sigh")
   choice
     Sortir de dessous la couette
       Doucement, tu sors ta tête de sous ta couverture... le bruit de respiration vient du côté
@@ -46,9 +48,9 @@ beat ReveGeant
               Retourner te cacher sous la couette
               -> ReveDodoAgain
 
-          ...il se décide à prendre la parole.
-          geant: Bonjour ${player.name == "Justin" ? "petit" : "petite"}, tu n'aurais pas vu des lutins farceurs? Il m'ont dérobés ma pipe!
-          -> ReveLutinsFarceurs
+        ...il se décide à prendre la parole.
+        geant: Bonjour ${player.name == "Justin" ? "petit" : "petite"}, tu n'aurais pas vu des lutins farceurs? Il m'ont dérobés ma pipe!
+        -> ReveLutinsFarceurs
 
 beat ReveLutinsFarceurs
   geant: Vois-tu, les lutins farceurs se sont introduit chez moi pendant que je dormais, et c'est à ce moment qu'ils m'ont pris ma vieille pipe! Je suis sûr que c'est eux,
@@ -111,6 +113,7 @@ beat ReveRendrePipe
   Tu ouvres les volets, et tu traines difficilement et lentement l'énorme pipe en bois peinte dans le jardin, aux pieds du géants. En t'attendant, il t'explique qu'il a réparé le toit comme il a pu. Ouf, Papa et Maman ne devraient se rendre compte de rien.
   Il récupère sa pipe, essai de l'essuyer un peu avec sa chemise en découvrant la peinture, hausse les épaules et la range dans sa poche. Il te dit au revoir, te fait un signe de la main, et se dirige vers le fond du jardin puis enjambe facilement la clôture.
   wait(1.0)
+  play_sound("giant_walk")
   Tu le suit un peu du regard, puis tu remontes dans ta chambre pour continuer à l'observer partir en direction de Gasny. Rapidement, il passe derrière la colline et tu ne le vois plus.
   wait(1.0)
   Le soleil commence déjà à se coucher, et tu regardes l'heure: déjà 19h30! Tu avais effectivement fait une sacrée grasse matinée. Tu te sens soudainement très fatigué${player.name == "Justin" ? "" : "e"}... et tu te glisses dans ton lit pour t'y reposer avec un livre.
@@ -141,6 +144,7 @@ beat ReveDodoAgain
   wait(1.0)
   ...?
   Tu... tu glisses! vers le fond du lit! Le lit est en pente et tu es entrainé${player.name == "Justin" ? "" : "e"} vers le fond!
+  play_sound("toboggan")
   -> ReveToboggan
 
 beat ReveToboggan

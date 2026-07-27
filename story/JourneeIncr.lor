@@ -84,6 +84,7 @@ beat LeCoucher
         une voix grave s'élève alors de l'intérieur de ${player.name == "Justin" ? "ton armoire": "ta commode"}... la surprise est telle que tu sursautes, mais sans crier...
 
         voix: houuuuuuuuuuu $player, je suis le fantôôôôôôôôme, le fantôôôôôme du meuble à vêtement! Tu déranges mon repos, pars maintenant houuuuu!
+        play_sound("ghost")
         -> LecoucherFantome
 
         
@@ -91,6 +92,7 @@ beat LeCoucher
 beat LecoucherFantome
         choice
             - Se cacher sous la couette
+            play_sound("ghost")
               voix: houuuuuu pas la peine de te cacher, je sais que tu es lààààà! Houuu file d'ici, crains ma colère!!
               -> LecoucherFantome
 
@@ -138,6 +140,7 @@ beat LecoucherFantome
                   -> chasserBoule
 
 beat chasserBoule
+  play_sound("grumble")
   Tandis qu'il s'éloigne, tu l'entends grommeler... et puis il se retourne, t'envoi un regard noir, et dit:
 
   "boule bizarre": Je m'en souviendrais, tu payeras pour ça! Attends-toi à entendre parler de moi!
