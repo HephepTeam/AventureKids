@@ -1,9 +1,6 @@
 beat PerduBois
-  wait(2.0)
-  Prenant la tête du convoi, tu dévales la pente qui longe la salle des fêtes et pénètre dans la forêt sur ton vélo. Papa te suit de près. tout de suite, la couches épaisses de feuillages
-  au dessus de ta tête obscurci ton chemin et il faut quelques instants à tes yeux pour t'habituer. Le chemin de terre serpente entre les plus gros arbres, et tu ne vois déjà plus l'entrée de la forêt. 
-  Tu réduis ta vitesse prudemment, la route n'étant pas aussi lisse et propre que sur la voie verte. Vous arrivez à un croisement. Selon toi, le chemin de gauche mène à l'Epte, tandis que celui de droite
-  ramène vers la voie verte. Selon Papa, vous avez légèrement tourné avec tout ces virages, et le chemin de gauche mène vers Gasny, tandis que le chemin de droite ramènes vers Fourges.
+  
+  Prenant la tête du convoi, tu dévales la pente qui longe la salle des fêtes et pénètre dans la forêt sur ton vélo. Papa te suit de près. tout de suite, la couches épaisses de feuillages au dessus de ta tête obscurci ton chemin et il faut quelques instants à tes yeux pour t'habituer. Le chemin de terre serpente entre les plus gros arbres, et tu ne vois déjà plus l'entrée de la forêt. Tu réduis ta vitesse prudemment, la route n'étant pas aussi lisse et propre que sur la voie verte. Vous arrivez à un croisement. Selon toi, le chemin de gauche mène à l'Epte, tandis que celui de droite ramène vers la voie verte. Selon Papa, vous avez légèrement tourné avec tout ces virages, et le chemin de gauche mène vers Gasny, tandis que le chemin de droite ramènes vers Fourges.
 
   Quel chemin prendre? Papa te laisses la décision, il n'a pas l'air inquiet.
   choice
@@ -17,18 +14,18 @@ beat PerduBois
 
 
 beat cheminGauche
-  //chemin qui monte, on on arrive en haut d'une colline, le paysage n'a rien a voir avec ce qu'on connait vu de la haut
-  La forêt est plutôt calme, mais tu entends de nombreux oiseaux. Parfois le soleil parvient à percer le feuillage et un raie de lumière
-  éclaire un clairière comme si elle était choisie par une force magique inconnue pour récéler un trésor... Mais tu sais qu'il n'y a rien, et c'est le bout du chemin qui t'intéresses.
-  Chemin qui commence à monter sévèrement! Papa est toujours derrière toi, il ne semble pas fatiguer...
+  La forêt est plutôt calme, mais tu entends de nombreux oiseaux. Parfois le soleil parvient à percer le feuillage et un raie de lumière éclaire un clairière comme si elle était choisie par une force magique inconnue pour récéler un trésor... Mais tu sais qu'il n'y a rien, et c'est le bout du chemin qui t'intéresses.
+  Chemin qui commence à monter sévèrement! Papa est toujours derrière toi, il ne semble pas fatigué...
 
   choice
     Descendre du vélo pour finir en marchant
       Tu as tout essayé, mais tu n'es pas venu${player.name == "Justin" ? "" : "e"} ici pour souffrir. Tu descends du vélo pour le pousser, et Papa fait de même pour rester à ton niveau.
-      Tu as bien fait, la montée semble encore très longue! Mais après bien 300 kilomètre à pied (ça use, ça use), tu commence à voir le haut de la colline. 
+      Tu as bien fait, la montée semble encore très longue! Mais après bien 300 mètres à pied (ça use, ça use), tu commence à voir le haut de la colline. 
+      -> finCheminGauche
 
     Te donner à fond et finir sur les pédales!
-      Allez, ça ne doit plus être très loin! Tu met la plus petite vitesse, tu te concentres et tu continue. Sur la fin, tu es même debout sur les pédales, comme les coureurs cyclistes, en "danseuse". Essouflé${player.name == "Justin" ? "" : "e"}, mais ${player.name == "Justin" ? "fier" : "fière"} de toi!
+      Allez, ça ne doit plus être très loin! Tu mets la plus petite vitesse, tu te concentres et tu continue. Sur la fin, tu es même debout sur les pédales, comme les coureurs cyclistes, en "danseuse". Essouflé${player.name == "Justin" ? "" : "e"}, mais ${player.name == "Justin" ? "fier" : "fière"} de toi!
+      -> finCheminGauche
 
 beat finCheminGauche
   Les arbres se font plus rare, tu vas pouvoir regarder un peu au loin pour te repérer, tu n'avais pas conscience qu'une colline aussi haute existait entre Fourges et Gasny!
@@ -141,7 +138,7 @@ beat tunelleFourmis
   Tu t'es dégagé${player.name == "Justin" ? "" : "e"} et tu es tombé${player.name == "Justin" ? "" : "e"} 
   en avant, sortant du tunnel... tu te retournes au sol et tu joues des jambes et des mains pour reculer au plus vite et tu vois les Fourmis-humanoïdes (leur peau noire était de la chitine, la matière dont est fait le corps des fourmis, te diras Papa...) se réenterrer dans les parois du tunnel,
   attendant leur prochaine proie... visiblement elles craignent la lumière du soleil, heureusement...vous remontez vite sur le vélo, Papa te demandes juste si ça va...
-  vu_fourmi_tunelle = true
+  vu_fourmi_tunnel = true
 
   choice 
     Ca va, mais partons d'ici!

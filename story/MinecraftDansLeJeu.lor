@@ -26,6 +26,7 @@ beat CoinceDansLeJeu
 
         Papa saisi la poignée, la tourne et la pousse.
 
+    visite_minecraft = true
     La lumière est brievement plus forte et tes yeux s'habitue. A la lumière seulement, car pour le reste, c'est purement de l'incrédulité: Tout le paysage est étrange,
     avec des couleurs vive, des arbres espacé, aucun buissons... tu vois un lac pas loin, mais l'eau est complètement plate, pas une seul vaguelette à l'horizon.
     Mais surtout, tout est CARRÉ ! Vous vouliez jouer à Minecraft, et bien il semble bien que vous soyez tombé dedans!
@@ -37,13 +38,18 @@ beat CoinceDansLeJeu
     Papa: $player.name! Tu es... cubique? On est dans Minecraft? Ça doit être l'éclair... mais qu'est-ce qu'on fait maintenant?
 
     choice
+
+      On étudie la situation calmement
+        Déjà, tu veux vérifier si c'est réellement le monde de Minecraft. Tu commences à taper le sol, les arbres, tout ce que tu peux pour voir comment ça réagit. Et tu fini par conclure, les poches pleines de cube de terre et de bois (combien tu peux en mettre [b]exactement???|\b]) : C'est bien Minecraft. Du coup, tes réflexes de joueu${player.name == "Justin" ? "r": "se"} prennent le dessus: Il faut se préparer pour la nuit! Tu missionnes Papa pour ramasser beaucoup de bois au plus vite pendant que tu essais de te fabriquer une pioche... avoir une interface de craft qui apparait devant ses yeux est assez dérangeant! Mais il faut faire vite, il faudrait trouver du charbon avant la nuit!
+
+        Mais vers ou chercher?
+        choice
+          Vers les falaises
+            
+          Dans une grotte naturelle
+            
+          Dans le sol, juste en dessous
+
       On profite, on explore!
         
-      On étudie la situation calmement
-        
-      On cherche comment rentrer chez nous!
-
-
-        // dans le noir a tatons on cherche l'arrière cuisine, on voit de la lumière, c'est une porte qui mèene a
-        //la plaine de minecraft, s'ensuit des péripéties a base de creeper et de construction, d'exploration de caverne pour fabvriquer un portail du neither
-        //pour repartir, ou pas, du monde de minecraft
+      On cherche comment rentrer chez nous! 

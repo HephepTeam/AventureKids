@@ -22,6 +22,7 @@ state
   rendu_pipe: false
   jette_pipe: false
   toboggan: false
+  tour_velo : false
   vu_lutins: false
   reve_fait: false
   convaincre_papa_essais : 6
@@ -69,15 +70,16 @@ beat PapaInsiste
       Papa: $player! Debout! Il est l'heure ${player.name == "Justin" ? "mon grand!" : "ma grande!"}
       play_sound("appel_papa")
       choice
-        ... if reve_fait != true
+        Ne rien faire if reve_fait != true
           Tu ne bouges toujours pas. Tu fini par te rendormir...
           -> Reve
 
-        "Papaaaaaa...."
-          Tu essai d'attirer son attention...
+        Essayer d'attirer son attention...
+          "Papaaaaaa...."
           -> PapaMonte
 
-        "J'arrive..."
+        Répondre et descendre
+          "J'arrive..."
           Allez, un petit effort, et tu descends!
           -> Descend
 
@@ -88,7 +90,7 @@ beat PapaMonte
   -> convaincrePapa
 
 beat convaincrePapa
-  Peut être en insistant un peu plus...
+  Peut être qu'en insistant un peu plus...
 
   choice
     "Allez $papa, s'il te plaaaaaaaaaaait!"

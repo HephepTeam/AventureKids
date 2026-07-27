@@ -1,5 +1,9 @@
 beat JourneeIncr
-    Par quoi va-t-on commencer?
+    sequence
+        Par quoi va-t-on commencer?
+    --
+        Et que fait-on ensuite?
+
 
     choice
         - Une partie d'échec
@@ -15,7 +19,7 @@ beat JourneeIncr
             $papa et toi décidez de créer un nouveau serveur sur la même console, c'est plus sympa. 
             -> CoinceDansLeJeu
         - un match de Rocket League en coopération if player.name == "Justin"
-            $papa et toi descendez au salon pour jouer à deux, toi sur la PS5, lui sur son PC.
+            $papa et toi descendez au salon pour jouer à deux, toi sur la PS5, lui sur son PC. Vous enchainez plusieurs match, plutôt des défaites, mais vous finissez par une série de trois victoire très satisfaisante!
             -> JourneeIncr
         - Un tour en vélo sur la voie verte
             $papa prépare le porte vélo pendant que tu vas chercher ton bolide dans la remise au fond du jardin.
@@ -25,6 +29,8 @@ beat JourneeIncr
 
 
 beat LostInWoods
+    tour_velo = true
+    wait(2.0)
     Tu vérifies, et vous avez tout le matériel: pompe a vélo, casquette, sac avec gourde et un petit goûter, et lunette de soleil en cas de besoin.
     $papa décharge les vélos au niveau de Bray-et-Lu, et vous commencez à rouler tranquillement vers Fourges. 
     wait(2.0)
