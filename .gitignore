@@ -1,5 +1,5 @@
-.godot/
-.godot/editor\
+.godot/*.*
+.godot/editor/
 .import/
 export.cfg
 .mono/
@@ -9,3 +9,23 @@ build/
 /tools
 /deploy
 *.import
+.godot/uid_cache.bin
+.godot/editor/aspiro.mp3-5181f00ca2eeae49def65905136f1f15.mp3str-folding-c3939111703e157e7002be181dbd944c.cfg
+.godot/editor/editor_layout.cfg
+.godot/editor/fadingembersaudio-spooky-cartoon-ghost-wooo-430234.mp3-12e16e2cbb9d9e15525602a0693ae24b.mp3str-folding-051bfbb6e6ead7b20dfb540cc985a0be.cfg
+.godot/editor/filesystem_cache10
+.godot/editor/floraphonic-exploding-building-1-185114.mp3-eb6f144fd635c1ac6da342ddea0b7905.mp3str-folding-2335b512b152c3df41205205c9aa07cf.cfg
+.godot/editor/freesound_community-doggrowlingsnarlinggrumbling-77634.mp3-a397ce65279d6f27f14d6b6299bd85ce.mp3str-folding-b4d573c2d130eae76f49aa416bbd9fd5.cfg
+.godot/editor/freesound_community-pasos-steps-40285.mp3-d871c0cbfe51baba0f8db015850028dc.mp3str-folding-4f5eb14100c9c677e31690d9c43eac1c.cfg
+.godot/editor/freesound_community-shopvac-77488.mp3-320be01867943efda5f5324b1aadaeb3.mp3str-folding-450b6f39fa1185a73e5d873d1f1c6161.cfg
+.godot/editor/geant_arrive.mp3-e3141b9efd6a57eb2b97334927cfea10.mp3str-folding-3cd250beada247333735c70134589f44.cfg
+.godot/editor/geant_part.mp3-ca41a8bee1b7961fe595cbd50616edd7.mp3str-folding-4d4494d1dc34c3a55ae4f3019f818de3.cfg
+.godot/editor/ghost.mp3-d17bfd137e073ecb6a6f7ad387aa406f.mp3str-folding-035d3e7c85cd4536742e25970d071006.cfg
+.godot/editor/Gnome panic.mp3-355b696d8bcb0508332f0852a55ca2e7.mp3str-folding-d8438034136ef24a8d3f8f5a281d5537.cfg
+.godot/editor/Gnome_ steps.mp3-e99dab0a83dc98d9902e361a6b0c0fd3.mp3str-folding-549f9d62958fea73bf594d59426d876e.cfg
+.godot/editor/grumble.mp3-a450aa2d5ad88546d5f0a9f3271780ce.mp3str-folding-28e4060d20c23c66626cc0a6a36c1550.cfg
+.godot/editor/music.mp3-ba0cc5ac787d75f702ba1461c4753958.mp3str-folding-63be8eb552b0625f1053794382f99e83.cfg
+.godot/editor/Ptitdej_cronch.mp3-36dee3441867d50c27d46bb72d4f7711.mp3str-folding-b2a9b872b4a1e67d2e86c0da76a229d1.cfg
+.godot/editor/roof_crush.mp3-7c3d673c3d7e293cb7d7b0d78aa77475.mp3str-folding-048be5e2056f427c0b4a630d177ca2f5.cfg
+.godot/editor/script_editor_cache.cfg
+.godot/editor/toboggan.mp3-f6c11c3aa466e554f3cdb2ff3bbd4aa2.mp3str-folding-d3459b5b47843743cf2ebf7a25b924fc.cfg
