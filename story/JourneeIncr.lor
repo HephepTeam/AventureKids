@@ -30,12 +30,13 @@ beat JourneeIncr
 
 beat LostInWoods
     tour_velo = true
-    wait(2.0)
     Tu vérifies, et vous avez tout le matériel: pompe a vélo, casquette, sac avec gourde et un petit goûter, et lunette de soleil en cas de besoin.
     $papa décharge les vélos au niveau de Bray-et-Lu, et vous commencez à rouler tranquillement vers Fourges. 
-    wait(2.0)
+    choice 
+      Continuer
     Il fait beau, le ciel bleu est de la partie et quelques nuages sont éparpillés ça et là au dessus de toi pour de faire de l'ombre quand tu as trop chaud. La piste cyclable est plâte, et sans efforts vous arrivez rapidement à la salle municipale  de Fourges, à côté du terrains avec les machines de sports sur lesquelles tu aimes bien monter et jouer. C'est là que vous faites votre première pause. 
-    wait(2.0)
+    choice 
+     Continuer
     En contrebas, à côté du terrain de foot, tu vois un chemin qui s'enfonce entre les arbres. Tu demandes à $papa s'il sait ou ça va. 
     
     papa: Non, pas du tout, ça te dirait d'aller voir?
@@ -51,7 +52,8 @@ beat LostInWoods
         -> retourBalade
 
 beat retourBalade
-          wait(1.0)
+          choice 
+            Continuer
 
           Une fois à la maison, il est déjà 18h30! $papa te demandes de ranger le vélo... tu y vas mais en râlant, tu as mal aux jambes.
 
@@ -75,6 +77,9 @@ beat LeCoucher
 
 
         parfait!
+
+      choice 
+        Continuer
         if player.name == "Justin"
             Tu règles avec lui l'émission et tu pars l'écouter dans ta chambre. Même si $papa n'aime pas trop ces émissions, toi ça te détend.
         else
@@ -82,7 +87,8 @@ beat LeCoucher
         wait(2.0)
 
         A un moment, ${player.name == "Justin" ? "l'émission": "la Flam'"} commence à grésiller et ça s'éteint. Ça ne fait pourtant pas 30 minutes! 
-        wait (2.0)
+        choice 
+          Continuer
 
         une voix étrange s'élève alors de l'intérieur de ${player.name == "Justin" ? "ton armoire": "ta commode"}... la surprise est telle que tu sursautes, mais sans crier...
 
@@ -95,7 +101,7 @@ beat LeCoucher
 beat LecoucherFantome
         choice
             - Se cacher sous la couette
-            play_sound("ghost")
+              play_sound("ghost")
               voix: houuuuuu pas la peine de te cacher, je sais que tu es lààààà! Houuu file d'ici, crains ma colère!!
               -> LecoucherFantome
 
@@ -103,10 +109,12 @@ beat LecoucherFantome
               -> PhantomPapa
 
             - se lever et ouvrir l'armoire
-              Tu es ${player.name == "Justin" ? "furieux": "furieuse"}! Comment ça, c'est quoi ces histoires? Tu es fatigué${player.name == "Justin" ? "": "e"}, ce n'est pas un fantôme à la noix qui va t'empêcher de dormir! Tu te lèves en jetant ta couette par terre, allumes la lumière, et te dirige vers le meuble en question. Tu l'ouvres, {player.name == "Justin" ? "prêt": "prête"} à en découdre, mais il n'y a rien! Alors tu soulèves chaque vêtement, tu scrutes chaque recoin, et tu tombe sur une drôle de bestiole...
-              wait(2.0)
+              Tu es ${player.name == "Justin" ? "furieux": "furieuse"}! Comment ça, c'est quoi ces histoires? Tu es fatigué${player.name == "Justin" ? "": "e"}, ce n'est pas un fantôme à la noix qui va t'empêcher de dormir! Tu te lèves en jetant ta couette par terre, allumes la lumière, et te dirige vers le meuble en question. Tu l'ouvres, ${player.name == "Justin" ? "prêt": "prête"} à en découdre, mais il n'y a rien! Alors tu soulèves chaque vêtement, tu scrutes chaque recoin, et tu tombe sur une drôle de bestiole...
+              choice 
+                Continuer
               Imagine une sorte de boule verdatre, avec des petites jambes, des petits bras et 2 gros yeux jaunes... on le dirait tout droit sorti d'une bande dessinée de Kid Paddle... Appeuré, il se terre dans un coin du meuble, tremblant, visiblement très deçu que tu l'ai découvert...
-
+              choice 
+                  Continuer
               boule_bizarre: Ok ok, tu m'as eu, ne me fait pas de mal s'il te plait! 
 
               Agacé${player.name == "Justin" ? "": "e"}, tu lui demandes ce qu'il fait là, et pourquoi il t'empêche de dormir.
@@ -159,8 +167,7 @@ beat PhantomPapa
         -> FinCoucher
 
 beat fabricationAbriBoule
-  Tu lui trouves une belle boite à chaussures que tu gardais pour tes jouets, tu y découpes plusieurs ouvertures pour lui faire des fenêtres et une porte (avec une punaise pour la poignée),
-  et le garni d'un t-shirt un peu trop petit pour toi. tu places cette boite sous ton lit, a l'abri du chat et de l'aspirateur.
+  Tu lui trouves une belle boite à chaussures que tu gardais pour tes jouets, tu y découpes plusieurs ouvertures pour lui faire des fenêtres et une porte (avec une punaise pour la poignée), et le garni d'un t-shirt un peu trop petit pour toi. tu places cette boite sous ton lit, a l'abri du chat et de l'aspirateur.
   La petite boule verte est ravie! Il te remercie chaudement, heureux d'avoir a nouveau un foyer. Et toi, tu es plutôt content${player.name == "Justin" ? "content": "contente"} d'avoir un co-locataire, c'est plus sympa.
 
   Mais maintenant, c'est l'heure pour tout le monde de dormir, alors tu te dirige vers ton lit.

@@ -53,7 +53,7 @@ beat Start
 
 beat Reveil
 
-  Depuis un sommeil profond, tu entends une voix loitaine...
+  Depuis un sommeil profond, tu entends une voix lointaine...
 
   inconnu: $player, c'est l'heure de se réveiller! Debout ${player.name == "Justin" ? "mon chéri!" : "ma chérie!"}
   play_sound("appel_papa")
@@ -71,7 +71,7 @@ beat PapaInsiste
       play_sound("appel_papa")
       choice
         Ne rien faire if reve_fait != true
-          Tu ne bouges toujours pas. Tu fini par te rendormir...
+          Tu ne bouges toujours pas. Tu finis par te rendormir...
           -> Reve
 
         Essayer d'attirer son attention...
@@ -105,7 +105,7 @@ beat convaincrePapa
         --
           Rien à faire, il ne veut pas...
         -> convaincrePapa
-
+    
       else
         Papa fini par céder! Il appelle son travail et te demande de choisir un jeu! Trop bien!
         papa_convaincu = true
@@ -201,20 +201,24 @@ beat ParentJourneeNormal
   if player.name == "Justin"
     Tu prends le bus pour le collège, le ciel est presque dégagé, il fait bon. 
     ...
-    wait(1.0)
+    choice 
+      Continuer
     La journée se déroule comme une journée normale au collège, rien de bien fou.
     ...
-    wait(1.0)
+    choice 
+      Continuer
     Une fois la journée finie, tu rentre à la maison par le bus. Tu fais tes devoirs, et joue un peu à la console.
     Tu manges avec tes parents, et puis...
     -> LeCoucher
   else
     Papa te dépose à l'école en voiture, avec ton cartable bien rempli sur le dos. Le ciel est presque bleu, il y'a quelques nuages.
     ...
-    wait(1.0)
+    choice 
+      Continuer
     La journée se déroule comme une journée normale à l'école, rien de bien fou.
     ...
-    wait(1.0)
+    choice 
+      Continuer
     Une fois la journée finie, Maman viens te chercher au périscolaire. Tu à déjà fait tes devoir, alors tu peux jouer un peu à la console.
     Tu manges avec tes parents, et puis...
     -> LeCoucher

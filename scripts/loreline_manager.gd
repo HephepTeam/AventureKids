@@ -102,7 +102,7 @@ func _play_sound(interp: LorelineInterpreter, args: Array, resolve: Callable) ->
 		var sound = sound_list[args[0]]
 		sound.pitch_scale = randf_range(0.9,1.1)
 		sound.play()
-		await sound.finished
+		#await sound.finished
 	else:
 		assert(false, "no sound called " + args[0]+" in sound list")
 	resolve.call()

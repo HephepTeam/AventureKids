@@ -1,6 +1,9 @@
 beat PerduBois
   
-  Prenant la tête du convoi, tu dévales la pente qui longe la salle des fêtes et pénètre dans la forêt sur ton vélo. Papa te suit de près. tout de suite, la couches épaisses de feuillages au dessus de ta tête obscurci ton chemin et il faut quelques instants à tes yeux pour t'habituer. Le chemin de terre serpente entre les plus gros arbres, et tu ne vois déjà plus l'entrée de la forêt. Tu réduis ta vitesse prudemment, la route n'étant pas aussi lisse et propre que sur la voie verte. Vous arrivez à un croisement. Selon toi, le chemin de gauche mène à l'Epte, tandis que celui de droite ramène vers la voie verte. Selon Papa, vous avez légèrement tourné avec tout ces virages, et le chemin de gauche mène vers Gasny, tandis que le chemin de droite ramènes vers Fourges.
+  Prenant la tête du convoi, tu dévales la pente qui longe la salle des fêtes et pénètre dans la forêt sur ton vélo. Papa te suit de près. tout de suite, la couches épaisses de feuillages au dessus de ta tête obscurci ton chemin et il faut quelques instants à tes yeux pour t'habituer. Le chemin de terre serpente entre les plus gros arbres, et tu ne vois déjà plus l'entrée de la forêt. Tu réduis ta vitesse prudemment, la route n'étant pas aussi lisse et propre que sur la voie verte. Vous arrivez à un croisement. 
+  choice 
+    Continuer
+  Selon toi, le chemin de gauche mène à l'Epte, tandis que celui de droite ramène vers la voie verte. Selon Papa, vous avez légèrement tourné avec tout ces virages, et le chemin de gauche mène vers Gasny, tandis que le chemin de droite ramènes vers Fourges.
 
   Quel chemin prendre? Papa te laisses la décision, il n'a pas l'air inquiet.
   choice
@@ -32,8 +35,10 @@ beat finCheminGauche
   Arrivé${player.name == "Justin" ? "" : "e"} enfin au sommet, tu poses le vélo en attendant que Papa arrive et tu regardes autour de toi, à la recherche d'un village ou d'un clocher...
   wait(2.0)
   Mais il n'y a rien du tout mis à part des arbres et des collines, à des kilomètres à la ronde...
-  wait(2.0)
+  choice 
+    Continuer
   Tu interroges Papa:
+  -> interrogationPapa
 
 beat interrogationPapa
   choice
@@ -55,10 +60,12 @@ beat interrogationPapa
 beat milieuCheminGauche
   Pendant un moment, aucun de vous deux ne parles, tout est silencieux. Soudain, un battement d'ailes se fait entendre derrière toi, en direction du seul arbre au sommet de la colline. Un arbre uniquement de branche, dépourvu
   de toute feuilles. Tu te retournes pour voir l'animal qui s'est posé dessus...
-  wait(2.0)
+  choice 
+    Continuer
   C'est l'oiseau le plus hideux que tu n'ai jamais vu de ta vie. Même les vautours te paraissent sympathiques comparés à lui. De taille similaire, il a des ailes toute grises, une drôle de tête rouge, pourvu d'un bec très très court, à peine visible.
   Ses pattes aacrochées a la branche ressemblent à des mains de grand-mères toutes ridées, mais le plus perturbant ce sont ses yeux... ces yeux qui te fixent pourraient appartenir à un être humain...
-  wait(2.0)
+  choice 
+    Continuer
   Un autre de ces drôles d'animaux se pose sur une branche un peu plus haut, te fixant également du regard...
   Sans détourner le regard, tu t'adresses à Papa:
   vu_oiseau_colline = true
@@ -67,15 +74,17 @@ beat milieuCheminGauche
     Papa, on repart en arrière, c'est la meilleur façon de retrouver la maison!
       Vous remontez rapidement sur vos vélos et commencez à dévaler à la pente par laquelle vous êtes arrivés. Le volatile perché le plus haut déploit ses ailes et s'envole à votre poursuite! Il bat trois fois des ailes
       pour se mettre à hauteur et pique dans la pente, gagnant rapidement du terrain! Tu jettes un coup d'oeil  derrière ton épaule, et tu vois l'animal de très prêt, ses drôles de "mains" tendues pour t'attraper la tête!
-      wait(2.0)
+      choice 
+        Continuer
       au dernier moment, tu baisses la tête pour t'engouffrer dans la partie dense de la forêt, et l'oiseau bat frénétiquement des ailes pour éviter de prendre une branche basse. Ouf, te voilà loin de ces choses! La descente reprend tranquillement. 
-      wait(2.0)
+      choice 
+        Continuer
       -> CheminGaucheBackward
 
     Papa, on continue, on ne reste pas ici avec ces trucs!
-      Vous remontez rapidement sur vos vélos et commencez à dévaler à la pente en face de vous, juste au moment ou un des volatiles se met en mouvement, battant de ses grandes ailes grises pour décoller! Le second décolle à son tour; Ils sont rapide et tu peines
-      à les distancer, le premier fond sur toi, ses "mains" tendues pour t'attraper! au moment ou tu crois qu'il va te toucher, l'autre volatile s'en mèle, et une rivalité s'engage pour savoir qui aura la proie: tu redoubles d'efforts pour ratrapper Papa parti devant,
-      et tu n'essai même pas de savoir lequel des deux oiseaux aura le dessus.
+      Vous remontez rapidement sur vos vélos et commencez à dévaler à la pente en face de vous, juste au moment ou un des volatiles se met en mouvement, battant de ses grandes ailes grises pour décoller! Le second décolle à son tour; Ils sont rapide et tu peines à les distancer, le premier fond sur toi, ses "mains" tendues pour t'attraper! au moment ou tu crois qu'il va te toucher, l'autre volatile s'en mèle, et une rivalité s'engage pour savoir qui aura la proie: tu redoubles d'efforts pour ratrapper Papa parti devant, et tu n'essai même pas de savoir lequel des deux oiseaux aura le dessus.
+      choice 
+        Continuer
       -> cheminDroite
 
 beat CheminGaucheBackward
@@ -98,9 +107,9 @@ beat cheminDroite
   La route que vous avez pris descend d'abord en pente douce, puis vous commencez à prendre de la vitesse. C'est au début rafraichissant, mais rapidement cela devient dangereux alors tu freines régulièrement pour garder une vitesse maitrisée. La densité d'arbres augmente autour de vous,
   et tu remarques assez tard que des talus de plus en plus haut borde le chemin. Après une dizaine de minutes de descente, tu freines brutalement pour t'arrêter, Papa manquant de te rentrer dedans et pestant comme à son habitude dans les situations ou 
   il est surpris. Mais tu as une bonne raison de t'être stoppé${player.name == "Justin" ? "" : "e"}! le chemin s'arrête là ou un étrange tunnel commence...
-  wait(2.0)
+  choice 
+    Continuer
   Vous vous regardez, avec Papa, et vous êtes d'accord, on voit une lueur au fond, on dirait bien une sortie! Il va falloir encore choisir!
-
 
   choice
     Continuer dans le tunnel jusqu'à la sortie, ça va bien déboucher quelques part
@@ -109,7 +118,8 @@ beat cheminDroite
     Cet endroit ne m'inspires pas, on remonte! 
       Vous rebroussez chemin a pied, la pente étant trop dure pour redémarrer en vélo. Cela vous prend evidemment le triple du temps de la descente, au moins! Tout le long du trajet, tu te sens comme épié... Parfois tu entends bouger dans le feuillage, dans les buissons, ou un cri étrange résonne au loin derrière les arbres...
       Plus le temps passe et plus cette forêt te parait hostile...
-      wait(2.0)
+      choice 
+        Continuer
       Vous finissez par arriver à la fourche ou tu as choisi le chemin de droite. Quel chemin prendre maintenant?
 
       choice
@@ -121,23 +131,27 @@ beat cheminDroite
 
 beat tunelleFourmis
   Hors de question que tu remontes toute la pente, ça va être infernal! La fraicheur du tunnel t'attire... et la curiosité te pousses à aller voir ce qu'il y'a au bout. Papa étant toujours prêt à explorer, il allume la lampe de son téléphone, et vous avancez à pied en tenant les vélos.
-  wait(2.0)
+  choice 
+    Continuer
   Dès que tu entres dans l'ombre du tunnel, la petite fraicheur que tu sentait dehors devient un froid glacial qui te saisi. Il doit y faire moins de 10 degrés, comment c'est possible? tout de suite, l'endroit est moins acceuillant, alors tu presses
   le pas et tu suis Papa au plus prêt. Lui aussi sent le froid, mais il encaisse sans rien dire, même si tu vois à sa démarche qu'il est concentré sur avancer vite, pour sortir vite.
   A la lumière de son téléphone, tu regardes les parois du tunnel... qui ne ressemble plus trop à un tunnel, on dirait plutôt une grotte, mais creusé dans la terre... il y'a très peut de pierres sur les murs, est-ce que c'est dangereux?
   Vous voilà bientôt à mi-chemin... tu décides de regarder l'entrée, derrière vous...
-  wait(2.0)
+  choice 
+    Continuer
   Il y'a quelqu'un dans la direction de l'entrée! Une personne accroupie, on dirait... tu ne vois que sa forme se découpant sur la lumière extérieure... juste ses deux jambes et ses...
-  wait(2.0)
+  choice 
+    Continuer
   ... quatres bras??
   Soudain, une main te frôle sur ta gauche, et tu cries de surprise. Papa se retourne avec la lampe, et la main, bizarrement noire et brillante, griffue, est plantée au bout d'un bras sortant de la paroie du tunnel, et qui bat l'air en essayant de t'aggripper...
-  Papa t'attrappes par le bras au moment où la main te frôle à nouveau, et tu commence à entendre des sortes de grattement qui grondent tout autour de vous... les parois du tunnel semblent se déformer, et d'un regard rapide tu réalise que la personne au bout du tunnel
-  court vers vous! Tu cries à nouveau et tu commences à courir, et Papa et toi courrez de toute vos forces, au moment ou partout le long du tunnel des mains noires et brillantes sortent des murs pour vous attraper, et vous arrivez
-  finalement a la sortie du tunnel et une main s'aggripe à ton t-shirt et tu TIRES de toute tes forces pour te dégages et BAM!
-  wait(2.0)
+  Papa t'attrappes par le bras au moment où la main te frôle à nouveau, et tu commence à entendre des sortes de grattement qui grondent tout autour de vous... les parois du tunnel semblent se déformer, et d'un regard rapide tu réalise que la personne au bout du tunnel court vers vous! 
+  choice 
+    Continuer
+  Tu cries à nouveau et tu commences à courir, et Papa et toi courrez de toute vos forces, au moment ou partout le long du tunnel des mains noires et brillantes sortent des murs pour vous attraper, et vous arrivez finalement a la sortie du tunnel et une main s'aggripe à ton t-shirt et tu TIRES de toute tes forces pour te dégages et BAM!
+  choice 
+    Continuer
   Tu t'es dégagé${player.name == "Justin" ? "" : "e"} et tu es tombé${player.name == "Justin" ? "" : "e"} 
-  en avant, sortant du tunnel... tu te retournes au sol et tu joues des jambes et des mains pour reculer au plus vite et tu vois les Fourmis-humanoïdes (leur peau noire était de la chitine, la matière dont est fait le corps des fourmis, te diras Papa...) se réenterrer dans les parois du tunnel,
-  attendant leur prochaine proie... visiblement elles craignent la lumière du soleil, heureusement...vous remontez vite sur le vélo, Papa te demandes juste si ça va...
+  en avant, sortant du tunnel... tu te retournes au sol et tu joues des jambes et des mains pour reculer au plus vite et tu vois les Fourmis-humanoïdes (leur peau noire était de la chitine, la matière dont est fait le corps des fourmis, te diras Papa...) se réenterrer dans les parois du tunnel, attendant leur prochaine proie... visiblement elles craignent la lumière du soleil, heureusement...vous remontez vite sur le vélo, Papa te demandes juste si ça va...
   vu_fourmi_tunnel = true
 
   choice 
@@ -152,7 +166,8 @@ beat tunelleFourmis
       
 beat retourChamp
   Papa passes devant pour jouer l'éclaireur, et continue a suivre prudemment le chemin, ne sachant pas quelle autre horreur pourrait vous tomber dessus...
-  wait(2.0)
+  choice 
+    Continuer
   le sentier se rétrécie de plus en plus, et se termine brutalement devant un champs de blé. Derrière, on aperçoit la voie verte et la route qui mène à Gasny! Hourra, vous êtes sauvé!
   Vous traversez le champ tant bien que mal en poussant le vélo, remontez sur la voie verte en direction de Fourges, et rangez rapidement les vélos et les casques, pour repartir au plus vite vers la maison.
   Dans la voiture, tu repenses à ces horribles créatures... elles semblent si loin maintenant...
