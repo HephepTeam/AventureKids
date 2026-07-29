@@ -5,7 +5,7 @@ ITCH_GAME_NAME=lincroyable-aventure
 
 
 ITCH_USER_NAME=hephep
-GODOT=../../tools/Godot/Godot_v4.7.1-stable_linux.x86_64
+GODOT=../../../tools/Godot/Godot_v4.7.1-stable_linux.x86_64
 BUTLER := tools/butler/butler
 
 BUILD_TIME := $(shell date "+%F-%T")

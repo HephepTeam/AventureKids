@@ -35,6 +35,23 @@ const CHOICE_BG_KEPT := Color("e33c00cc")
 #gameplay
 var retry = false
 
+# paths
+	
+@onready var paths ={
+	"sorti_lit" : [false, "A quitté son lit"],
+	"ptit_dej":[ false, "A pris à petit déjeuner"],
+	"rendu_pipe":[ false, "A rendu sa pipe a un géant"],
+	"toboggan":[ false, "A fait un tour en toboggan"],
+	"vu_lutins":[false, "A vu des lutins"],
+	"papa_convaincu":[ false, "A convaincu son père"],
+	"tour_velo" : [false, "A fait un tour à vélo"],
+	"chasser_boule":[ false, "A pourchassé une drôle de boule"],
+	"vu_oiseau_colline":[ false, "A fait de l'ornythologie"],
+	"vu_fourmi_tunnel":[ false, "A visité une fourmillière"],
+	"vaincu_pirate":[ false, "A défait une bande de pirates"],
+	"visite_minecraft":[false, "A fait un tour dans un jeu vidéo"]
+}
+
 
 func fade_music():
 	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)

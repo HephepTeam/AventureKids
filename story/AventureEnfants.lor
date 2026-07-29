@@ -45,7 +45,7 @@ beat Start
     Je suis Elise
       player.name := Elise
 
-  Narrateur: Bienvenue dans l'aventure, $player! Tu va vivre une journée incroyable, mais attention à ne pas tomber dans les pièges qu'elle te réserve!
+  Narrateur: Bienvenue dans l'aventure, $player! Tu vas vivre une journée incroyable, mais attention à ne pas tomber dans les pièges qu'elle te réserve!
   wait(2.0)
   Narrateur: Mais commençons par le commencement... Tu dors encore...
   -> Reveil
@@ -107,7 +107,11 @@ beat convaincrePapa
         -> convaincrePapa
     
       else
+  
+
         Papa fini par céder! Il appelle son travail et te demande de choisir un jeu! Trop bien!
+        wait(0.5)
+        play_sound("wow")
         papa_convaincu = true
         -> JourneeIncr
 
@@ -151,34 +155,42 @@ beat PetitDej
   
   choice
     - Manger des céréales if satiete  < 8
+      play_sound("ptit_dej")
       ptit_dej = true
       satiete += 3
 
     - Manger de la brioche if satiete  < 8
+      play_sound("ptit_dej")
       ptit_dej = true
       satiete += 3
 
     - Manger du jambon if satiete  < 8
+      play_sound("ptit_dej")
       ptit_dej = true
       satiete += 3
 
     - Manger un yaourt if satiete  < 8
+      play_sound("boire")
       ptit_dej = true
       satiete += 3
 
     - Manger un éclair au chocolat if satiete  < 8
+      play_sound("ptit_dej")
       ptit_dej = true
       satiete += 6
 
     - Manger un magnum double chocolat if satiete  < 8
+      play_sound("ptit_dej")
       ptit_dej = true
       satiete += 6
 
     - Boire du lait if satiete  < 8
+      play_sound("boire")
       ptit_dej = true
       satiete += 2
 
     - Boire du jus de fruits if satiete  < 8
+      play_sound("boire")
       ptit_dej = true
       satiete += 2
 
@@ -186,7 +198,7 @@ beat PetitDej
       if satiete == 0
         ptit_dej = false
       -> choixRDC
-  play_sound("ptit_dej")
+  
   -> PetitDej
 
 

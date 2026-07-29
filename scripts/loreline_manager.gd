@@ -27,6 +27,7 @@ var bottom_spacer: Control
 @onready var sound_list = {
 	"appel_papa" : $Sfx/appel_papa,
 	"ptit_dej" : $Sfx/ptitdej,
+	"boire" : $Sfx/boire,
 	"roof_crush": $Sfx/roof_crush,
 	"giant_walk" : $Sfx/giant_walk,
 	"giant_sigh" : $Sfx/giant_sigh,
@@ -35,26 +36,11 @@ var bottom_spacer: Control
 	"gnome_steps" : $Sfx/gnome_pas,
 	"weird_bird" : $Sfx/weird_bird,
 	"toboggan": $Sfx/toboggan,
-	"grumble" : $Sfx/grumble
-	
+	"grumble" : $Sfx/grumble,
+	"ghost" : $Sfx/ghost,
+	"wow": $Sfx/wow
 }
 
-# paths
-	
-@onready var paths ={
-	"sorti_lit" : [false, "A quitté son lit"],
-	"ptit_dej":[ false, "A pris à petit déjeuner"],
-	"rendu_pipe":[ false, "A rendu sa pipe a un géant"],
-	"toboggan":[ false, "A fait un tour en toboggan"],
-	"vu_lutins":[false, "A vu des lutins"],
-	"papa_convaincu":[ false, "A convaincu son père"],
-	"tour_velo" : [false, "A fait un tour à vélo"],
-	"chasser_boule":[ false, "A pourchassé une drôle de boule"],
-	"vu_oiseau_colline":[ false, "A fait de l'ornythologie"],
-	"vu_fourmi_tunnel":[ false, "A visité une fourmillière"],
-	"vaincu_pirate":[ false, "A défait une bande de pirates"],
-	"visite_minecraft":[false, "A fait un tour dans un jeu vidéo"]
-}
 
 func _ready() -> void:
 	if Globals.font_regular == null or Globals.font_semibold == null or Globals.font_italic == null:
@@ -135,7 +121,7 @@ func _on_dialogue(interp: LorelineInterpreter, character: String, text: String, 
 	
 	var saved_data = []
 	saved_data.append(interp.save_state())
-	saved_data.append(paths)
+	saved_data.append(Globals.paths)
 	SaveManager.save_to_file(saved_data)
 
 	
@@ -288,13 +274,13 @@ func _on_finished(_interp: LorelineInterpreter) -> void:
 	if saved_data[0] != "":
 		var dejson = JSON.parse_string(saved_data[0])
 		var fields = dejson["state"]["fields"]
-		for path in paths.keys():
+		for path in Globals.paths.keys():
 			if path in fields:
-				paths[path][0] = paths[path][0] || fields[path]
+				Globals.paths[path][0] = Globals.paths[path][0] || fields[path]
 		
 	var inst = achievement_panel_scene.instantiate()
 	_add_content(inst)
-	inst.init_with_data(paths)
+	inst.init_with_data(Globals.paths)
 	_fade_in(inst)
 	
 	spacer = Control.new()
