@@ -78,7 +78,9 @@ beat ReveDescend
             play_sound("gnome_steps")
             Tu te fais aussi ${player.name == "Justin" ? "discret" : "discrète"} que possible et tu écoutes les bruits ambiants du salons... Tu discèrnes des petits chuchotement qui viennent du canapé. Tes yeux s'habituent a la pénombre,
             et tu distingue des petits chapeaux pointus qui s'agitent sur la banquette. A pas de loup, tu t'approches... 
+            vu_lutins = true
             if vu_geant
+                
                 Ce sont des lutins farceurs!
                 ils ne t'ont pas remarqué, et sont affairé à décorer une enorme pipe en bois avec de la peinture...
 
