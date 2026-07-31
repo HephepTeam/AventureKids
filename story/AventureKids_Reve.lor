@@ -1,11 +1,12 @@
 beat Reve
   reve_fait = true
-
+  wait (2.0)
   play_sound("roof_crush")
   Mais tu es bien vite à nouveau réveillé${player.name == "Justin" ? "" : "e"}, en sursaut, par un terrible craquement! La lumière jaillit brusquement dans ta chambre! 
   ${player.name == "Justin" ? "Effrayé" : "Effrayée"}, tu te caches sous ta couverture. Tu entends des débris tomber sur le parquet, mais le bruit fini par cesser, et tu entend le vent... un vent saccadé, comme une sorte de respiration?
-
+  wait(2.0)
   play_sound("giant_sigh")
+
   choice
     Sortir de dessous la couette
       Doucement, tu sors ta tête de sous ta couverture... le bruit de respiration vient du côté de la fenêtre... discrètement, tu jette un oeil dans cette direction. Deux yeux gigantesques te renvoient ton regard!
@@ -27,6 +28,8 @@ beat Reve
 
 beat ReveGeant
     vu_geant = true
+    wait(1.0)
+    play_sound("giant_sigh")
     Qu'est-ce que c'est que ça? un géant? Ses gros doigts tiennent le toit de la maison légèrement surélévé pour qu'il puisse regarder à l'intérieur de ta chambre.
     Tu peut ne peut même pas voir son nez en entier! Il a de gros sourcils épais, et des yeux d'un bleu lagon. Il a l'air d'un homme d'une quarantaine d'années, mais en 1000 fois plus grand! Vous vous observez pendant un temps infini... quand soudain...
 
@@ -132,7 +135,7 @@ beat ReveLutinLumiere
   -> ReveToboggan
 
 beat ReveDodoAgain
-  Pas convaincu, tu rabats la couette sur ta tête et te concentre pour ne plus penser à ce qui t'entoure, c'est bien trop bizarre.
+  Pas convaincu${player.name == "Justin" ? "" : "e"} , tu rabats la couette sur ta tête et te concentres pour ne plus penser à ce qui t'entoures, c'est bien trop bizarre.
   Tu décides d'appliquer les conseils de maman et entames un exercice de respiration pour te calmer.
   wait(1.0)
   Tu inspires...
@@ -147,9 +150,8 @@ beat ReveDodoAgain
   -> ReveToboggan
 
 beat ReveToboggan
-  Tout deviens noir autour de toi, et tu glisses de plus en plus vite... puis parfois la lumière viens au travers du tube dans lequel 
-  tu glisses à toute vitesse, un peu comme dans un parc aquatique! Il y'a des virages, à gauche, à a droite, puis un long virage à gauche
-  qui te fait faire au moins deux tours, tu perds complètement tes repères et soudain: la chute! 
+  toboggan = true
+  Tout devient noir autour de toi, et tu glisses de plus en plus vite... puis parfois la lumière viens au travers du tube dans lequel tu glisses à toute vitesse, un peu comme dans un parc aquatique! Il y'a des virages, à gauche, à droite, puis un long virage à gauche qui te fait faire au moins deux tours, tu perds complètement tes repères et soudain: la chute! 
   choice 
     Continuer
   Plus rien sous les fesses, plus de toboggan! tu tombes, le souffle coupé, et puis poum, tu atterris...

@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://ddmqljk6qlt5d" path="res://assets/sounds/bong_001.ogg" id="4_jyhfs"]
 [ext_resource type="AudioStream" uid="uid://blf06gadcoaen" path="res://assets/sounds/Ptitdej_cronch.mp3" id="5_tipki"]
 [ext_resource type="AudioStream" uid="uid://tf6qkmv4psrt" path="res://assets/sounds/AppelPapa.mp3" id="6_85g3d"]
+[ext_resource type="AudioStream" uid="uid://ct6bnch2td6hb" path="res://assets/sounds/boire.mp3" id="6_muem4"]
 [ext_resource type="AudioStream" uid="uid://b5lg16wdtas4d" path="res://assets/sounds/Giant breath.mp3" id="6_tipki"]
 [ext_resource type="AudioStream" uid="uid://bnh4ghgkcggq7" path="res://assets/sounds/roof_crush.mp3" id="7_eb6dy"]
 [ext_resource type="AudioStream" uid="uid://b45qpvkvtssjn" path="res://assets/sounds/Gnome panic.mp3" id="8_tipki"]
@@ -16,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://cdj7dl4hbrt23" path="res://assets/sounds/toboggan.mp3" id="13_trceg"]
 [ext_resource type="AudioStream" uid="uid://n5367mjyapv8" path="res://assets/sounds/grumble.mp3" id="14_a8y0u"]
 [ext_resource type="AudioStream" uid="uid://cy82yf4sc0y" path="res://assets/sounds/ghost.mp3" id="16_muem4"]
+[ext_resource type="AudioStream" uid="uid://dk2pksrcoggpi" path="res://assets/sounds/wow.mp3" id="18_dp3eg"]
 
 [node name="Main" type="Control" unique_id=880900654]
 layout_mode = 3
@@ -74,6 +76,9 @@ stream = ExtResource("4_jyhfs")
 [node name="ptitdej" type="AudioStreamPlayer" parent="Sfx" unique_id=1816570111]
 stream = ExtResource("5_tipki")
 
+[node name="boire" type="AudioStreamPlayer" parent="Sfx" unique_id=1190902884]
+stream = ExtResource("6_muem4")
+
 [node name="appel_papa" type="AudioStreamPlayer" parent="Sfx" unique_id=2124219998]
 stream = ExtResource("6_85g3d")
 
@@ -106,3 +111,6 @@ stream = ExtResource("14_a8y0u")
 
 [node name="ghost" type="AudioStreamPlayer" parent="Sfx" unique_id=308080264]
 stream = ExtResource("16_muem4")
+
+[node name="wow" type="AudioStreamPlayer" parent="Sfx" unique_id=616828878]
+stream = ExtResource("18_dp3eg")

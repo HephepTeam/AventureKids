@@ -73,13 +73,12 @@ beat LeCoucher
     else
         tu demandes quand même si tu peux écouter ta Flam avant de t'endormir, juste une histoire! 
 
-        papa: Ok, mais 30 minutes, pas plus!
+    papa: Ok, mais 30 minutes, pas plus!
 
 
-        parfait!
-
-      choice 
-        Continuer
+    choice 
+      Continuer
+        
         if player.name == "Justin"
             Tu règles avec lui l'émission et tu pars l'écouter dans ta chambre. Même si $papa n'aime pas trop ces émissions, toi ça te détend.
         else
@@ -87,14 +86,15 @@ beat LeCoucher
         wait(2.0)
 
         A un moment, ${player.name == "Justin" ? "l'émission": "la Flam'"} commence à grésiller et ça s'éteint. Ça ne fait pourtant pas 30 minutes! 
+        
         choice 
           Continuer
 
-        une voix étrange s'élève alors de l'intérieur de ${player.name == "Justin" ? "ton armoire": "ta commode"}... la surprise est telle que tu sursautes, mais sans crier...
+            une voix étrange s'élève alors de l'intérieur de ${player.name == "Justin" ? "ton armoire": "ta commode"}... la surprise est telle que tu sursautes, mais sans crier...
 
-        voix: houuuuuuuuuuu $player, je suis le fantôôôôôôôôme, le fantôôôôôme du meuble à vêtement! Tu déranges mon repos, pars maintenant houuuuu!
-        play_sound("ghost")
-        -> LecoucherFantome
+            voix: houuuuuuuuuuu $player, je suis le fantôôôôôôôôme, le fantôôôôôme du meuble à vêtement! Tu déranges mon repos, pars maintenant houuuuu!
+            play_sound("ghost")
+            -> LecoucherFantome
 
         
 
@@ -112,34 +112,35 @@ beat LecoucherFantome
               Tu es ${player.name == "Justin" ? "furieux": "furieuse"}! Comment ça, c'est quoi ces histoires? Tu es fatigué${player.name == "Justin" ? "": "e"}, ce n'est pas un fantôme à la noix qui va t'empêcher de dormir! Tu te lèves en jetant ta couette par terre, allumes la lumière, et te dirige vers le meuble en question. Tu l'ouvres, ${player.name == "Justin" ? "prêt": "prête"} à en découdre, mais il n'y a rien! Alors tu soulèves chaque vêtement, tu scrutes chaque recoin, et tu tombe sur une drôle de bestiole...
               choice 
                 Continuer
-              Imagine une sorte de boule verdatre, avec des petites jambes, des petits bras et 2 gros yeux jaunes... on le dirait tout droit sorti d'une bande dessinée de Kid Paddle... Appeuré, il se terre dans un coin du meuble, tremblant, visiblement très deçu que tu l'ai découvert...
-              choice 
-                  Continuer
-              boule_bizarre: Ok ok, tu m'as eu, ne me fait pas de mal s'il te plait! 
+                  Imagine une sorte de boule verdatre, avec des petites jambes, des petits bras et 2 gros yeux jaunes... on le dirait tout droit sorti d'une bande dessinée de Kid Paddle... Appeuré, il se terre dans un coin du meuble, tremblant, visiblement très deçu que tu l'ai découvert...
+                  choice 
+                      Continuer
+                        boule_bizarre: Ok ok, tu m'as eu, ne me fait pas de mal s'il te plait! 
 
-              Agacé${player.name == "Justin" ? "": "e"}, tu lui demandes ce qu'il fait là, et pourquoi il t'empêche de dormir.
-              Il s'avère qu'il a perdu sa maison, et qu'il cherche un coin pour dormir, mais il avait peur qu'en le voyant tu essayes de l'écraser!
-              Alors il va voulu se faire passer pour plus menaçant qu'il n'est vraiment, il comptait te faire fuir pour s'installer dans ta chambre...
-              wait(2.0)
-              ...Mais il regrette! IL te demande pardon, il demande à ce que tu l'épargne, et que tu l'aides à trouver un foyer, s'il te plait, s'il te plait silteplaitsilteplaiiiiiit!
+                        Agacé${player.name == "Justin" ? "": "e"}, tu lui demandes ce qu'il fait là, et pourquoi il t'empêche de dormir.
+                        Il s'avère qu'il a perdu sa maison, et qu'il cherche un coin pour dormir, mais il avait peur qu'en le voyant tu essayes de l'écraser!
+                        Alors il va voulu se faire passer pour plus menaçant qu'il n'est vraiment, il comptait te faire fuir pour s'installer dans ta chambre...
+                        wait(2.0)
+                        ...Mais il regrette! IL te demande pardon, il demande à ce que tu l'épargne, et que tu l'aides à trouver un foyer, s'il te plait, s'il te plait silteplaitsilteplaiiiiiit!
 
-              choice
-                Pas question qu'il reste! Il va t'empêcher de dormir! Dehors la boule bizarre!
-                  boule_bizarre: Non, laisse-moi une chance? S'il te plait? Il fait si froid dehors...
+                        choice
+                          Pas question qu'il reste! Il va t'empêcher de dormir! Dehors la boule bizarre!
+                            boule_bizarre: Non, laisse-moi une chance? S'il te plait? Il fait si froid dehors...
 
-                  Tu ouvre la fenêtre et l'encourage à partir. Il te fait ses yeux les plus misérables en passant, comme un petit chat tout mignon! Un petit chat tout rond, tout vert et sans poils...
-                  choice
-                    Bon, d'accord, il peut rester!
-                      -> fabricationAbriBoule
-                    Ca ne fonctionne pas avec toi! Allez zou, dehors!
-                      La boule verte sur pattes se renfrogne alors, et passe à contrecoeur par la fenêtre...
-                      -> chasserBoule
+                            Tu ouvre la fenêtre et l'encourage à partir. Il te fait ses yeux les plus misérables en passant, comme un petit chat tout mignon! Un petit chat tout rond, tout vert et sans poils...
+                            choice
+                              Bon, d'accord, il peut rester!
+                                -> fabricationAbriBoule
+                              Ca ne fonctionne pas avec toi! Allez zou, dehors!
+                                La boule verte sur pattes se renfrogne alors, et passe à contrecoeur par la fenêtre...
+                                -> chasserBoule
 
-                Tu l'autorises a rester, et tu comptes même l'aider à se faire un coin douillet!
-                  -> fabricationAbriBoule
+                          Tu l'autorises a rester, et tu comptes même l'aider à se faire un coin douillet!
+                            -> fabricationAbriBoule
 
-                Tu décides qu'il faut mettre un terme à tout ça, et tu attrapes ton fusil Nerf sous ton lit... Il t'as vu, et voyant que tu n'es pas là pour rigoler, il fonce vers la fenêtre et deploit toutes ses forces pour l'ouvrir. Tu commences à faire feux, et les flechettes s'abattent atour de lui alors qu'il se contorsionne pour passer dans l'étroite ouverture du velux... puis PLOP! une flêchette lui touche l'arrière-train et le propulse en dehors. Il dévale le toit, tombe lourdement sur la terrasse, se relève tant bien que mal et s'enfuit vers le fond du jardin.
-                  -> chasserBoule
+                          Tu décides qu'il faut mettre un terme à tout ça, et tu attrapes ton fusil Nerf sous ton lit... 
+                            Il t'as vu, et voyant que tu n'es pas là pour rigoler, il fonce vers la fenêtre et deploit toutes ses forces pour l'ouvrir. Tu commences à faire feux, et les flechettes s'abattent atour de lui alors qu'il se contorsionne pour passer dans l'étroite ouverture du velux... puis PLOP! une flêchette lui touche l'arrière-train et le propulse en dehors. Il dévale le toit, tombe lourdement sur la terrasse, se relève tant bien que mal et s'enfuit vers le fond du jardin.
+                            -> chasserBoule
 
 beat chasserBoule
   play_sound("grumble")
