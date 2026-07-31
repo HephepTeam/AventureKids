@@ -2,7 +2,7 @@ extends Control
 
 # Loreline runtime
 var loreline: Loreline = Loreline.shared()
-var options: LorelineOptions
+var g_options: LorelineOptions
 
 @export var button_scene: PackedScene
 @export var achievement_panel_scene: PackedScene
@@ -28,6 +28,7 @@ var bottom_spacer: Control
 	"appel_papa" : $Sfx/appel_papa,
 	"ptit_dej" : $Sfx/ptitdej,
 	"boire" : $Sfx/boire,
+	"aspiro" : $Sfx/aspiro,
 	"roof_crush": $Sfx/roof_crush,
 	"giant_walk" : $Sfx/giant_walk,
 	"giant_sigh" : $Sfx/giant_sigh,
@@ -38,7 +39,8 @@ var bottom_spacer: Control
 	"toboggan": $Sfx/toboggan,
 	"grumble" : $Sfx/grumble,
 	"ghost" : $Sfx/ghost,
-	"wow": $Sfx/wow
+	"wow": $Sfx/wow,
+	"creeper" : $Sfx/creeper
 }
 
 
@@ -65,8 +67,8 @@ func _ready() -> void:
 
 	await get_tree().create_timer(1.0).timeout
 
-	options = LorelineOptions.new()
-	options.set_async_function("play_sound", _play_sound)
+	g_options = LorelineOptions.new()
+	g_options.set_async_function("play_sound", _play_sound)
 	# parse() returns a Signal you can await — it fires `completed(script)`
 	# once parsing + all imports have resolved.
 	var script = await loreline.parse("res://story/AventureEnfants.lor")
@@ -82,8 +84,7 @@ func _ready() -> void:
 
 
 
-func _play_sound(interp: LorelineInterpreter, args: Array, resolve: Callable) -> void:
-	print(args)
+func _play_sound(_interp: LorelineInterpreter, args: Array, resolve: Callable) -> void:
 	if args[0] in sound_list.keys():
 		var sound = sound_list[args[0]]
 		sound.pitch_scale = randf_range(0.9,1.1)
@@ -94,6 +95,7 @@ func _play_sound(interp: LorelineInterpreter, args: Array, resolve: Callable) ->
 	resolve.call()
 
 func _start_story() -> void:
+	_on_button_pressed()
 	# Clear previous content
 	for child in content_column.get_children():
 		child.queue_free()
@@ -111,9 +113,12 @@ func _start_story() -> void:
 
 	var saved_data = SaveManager.load_from_file()
 	if saved_data != null and !Globals.retry:
-		var resumed := loreline.resume(script_data, _on_dialogue, _on_choice, _on_finished, saved_data[0],"",options)
+		var dico_data = JSON.parse_string(saved_data[0])
+		dico_data["state"]["fields"]["reve_fait"] = false
+		saved_data[0] = JSON.stringify(dico_data)
+		var _resumed := loreline.resume(script_data, _on_dialogue, _on_choice, _on_finished, saved_data[0],"",g_options)
 	else:
-		loreline.play(script_data, _on_dialogue, _on_choice, _on_finished, "", options)
+		loreline.play(script_data, _on_dialogue, _on_choice, _on_finished, "", g_options)
 
 # --- Signal Handlers ---
 
@@ -268,6 +273,8 @@ func _on_finished(_interp: LorelineInterpreter) -> void:
 	var spacer := Control.new()
 	spacer.custom_minimum_size.y = Globals.SECTION_SPACING * 2
 	_add_content(spacer)
+	
+	Globals.story_ended = true
 
 	#test affichage des achievements
 	var saved_data = SaveManager.load_from_file()
@@ -288,38 +295,78 @@ func _on_finished(_interp: LorelineInterpreter) -> void:
 	_add_content(spacer)
 
 	# Restart button
-	var btn := Button.new()
+	#var btn := Button.new()
+	var btn = button_scene.instantiate()
 	btn.text = "Recommencer"
-	btn.add_theme_font_override("font", Globals.font_regular)
-	btn.add_theme_font_size_override("font_size", Globals.CHOICE_FONT_SIZE)
-	btn.alignment = HORIZONTAL_ALIGNMENT_CENTER
-
-	var style := StyleBoxFlat.new()
-	style.bg_color = Globals.CHOICE_BG
-	style.border_color = Globals.ACCENT_PURPLE
-	style.set_border_width_all(1)
-	style.set_corner_radius_all(8)
-	style.set_content_margin_all(10)
-	style.content_margin_left = 20
-	style.content_margin_right = 20
-	btn.add_theme_stylebox_override("normal", style)
-
-	var hover_style := style.duplicate()
-	hover_style.bg_color = Globals.GLOW_BG
-	btn.add_theme_stylebox_override("hover", hover_style)
-
-	btn.add_theme_color_override("font_color", Globals.ACCENT_PURPLE)
-	btn.add_theme_color_override("font_hover_color", Globals.TEXT_COLOR)
+	btn.autowrap_mode =TextServer.AUTOWRAP_OFF
+	#btn.add_theme_font_override("font", Globals.font_regular)
+	#btn.add_theme_font_size_override("font_size", Globals.CHOICE_FONT_SIZE)
+	#btn.alignment = HORIZONTAL_ALIGNMENT_CENTER
+#
+	#var style := StyleBoxFlat.new()
+	#style.bg_color = Globals.CHOICE_BG
+	#style.border_color = Globals.ACCENT_PURPLE
+	#style.set_border_width_all(1)
+	#style.set_corner_radius_all(8)
+	#style.set_content_margin_all(10)
+	#style.content_margin_left = 20
+	#style.content_margin_right = 20
+	#btn.add_theme_stylebox_override("normal", style)
+#
+	#var hover_style := style.duplicate()
+	#hover_style.bg_color = Globals.GLOW_BG
+	#btn.add_theme_stylebox_override("hover", hover_style)
+#
+	#btn.add_theme_color_override("font_color", Globals.ACCENT_PURPLE)
+	#btn.add_theme_color_override("font_hover_color", Globals.TEXT_COLOR)
 	btn.pressed.connect(_start_story)
 
 	Globals.retry = true
+	
+	# back button
+	#var btn2 := Button.new()
+	var btn2= button_scene.instantiate() as Button
+	btn2.text = "Retour au menu"
+	btn2.autowrap_mode =TextServer.AUTOWRAP_OFF
+	btn2.add_theme_font_override("font", Globals.font_regular)
+	btn2.add_theme_font_size_override("font_size", Globals.CHOICE_FONT_SIZE)
+	btn2.alignment = HORIZONTAL_ALIGNMENT_CENTER
+#
+	#style = StyleBoxFlat.new()
+	#style.bg_color = Globals.CHOICE_BG
+	#style.border_color = Globals.ACCENT_PURPLE
+	#style.set_border_width_all(1)
+	#style.set_corner_radius_all(8)
+	#style.set_content_margin_all(10)
+	#style.content_margin_left = 20
+	#style.content_margin_right = 20
+	#btn.add_theme_stylebox_override("normal", style)
+#
+	#hover_style = style.duplicate()
+	#hover_style.bg_color = Globals.GLOW_BG
+	#btn2.add_theme_stylebox_override("hover", hover_style)
+#
+	#btn2.add_theme_color_override("font_color", Globals.ACCENT_PURPLE)
+	#btn2.add_theme_color_override("font_hover_color", Globals.TEXT_COLOR)
+	btn2.pressed.connect(_back_to_menu)
+
 	
 	
 	var center := CenterContainer.new()
 	center.add_child(btn)
 	_add_content(center)
-
 	_fade_in(center)
+	
+	spacer = Control.new()
+	spacer.custom_minimum_size.y = Globals.SECTION_SPACING * 2
+	_add_content(spacer)
+	
+	center = CenterContainer.new()
+	center.add_child(btn2)
+	_add_content(center)
+	_fade_in(center)
+
+	
 	_update_keeper()
 	_smooth_scroll_to_bottom()
 
@@ -397,3 +444,7 @@ func _gradient_bbcode(text: String) -> String:
 	
 func _on_button_pressed():
 	clic_choice.play()
+
+func _back_to_menu():
+	_on_button_pressed()
+	get_tree().change_scene_to_file("res://scenes/menu_screen.tscn")

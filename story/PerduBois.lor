@@ -62,30 +62,36 @@ beat milieuCheminGauche
   de toute feuilles. Tu te retournes pour voir l'animal qui s'est posé dessus...
   choice 
     Continuer
-  C'est l'oiseau le plus hideux que tu n'ai jamais vu de ta vie. Même les vautours te paraissent sympathiques comparés à lui. De taille similaire, il a des ailes toute grises, une drôle de tête rouge, pourvu d'un bec très très court, à peine visible.
-  Ses pattes aacrochées a la branche ressemblent à des mains de grand-mères toutes ridées, mais le plus perturbant ce sont ses yeux... ces yeux qui te fixent pourraient appartenir à un être humain...
-  choice 
-    Continuer
-  Un autre de ces drôles d'animaux se pose sur une branche un peu plus haut, te fixant également du regard...
-  Sans détourner le regard, tu t'adresses à Papa:
-  vu_oiseau_colline = true
+      play_sound("weird_bird")
+      C'est l'oiseau le plus hideux que tu n'ai jamais vu de ta vie. Même les vautours te paraissent sympathiques comparés à lui. De taille similaire, il a des ailes toute grises, une drôle de tête rouge, pourvu d'un bec très très court, à peine visible.
+      Ses pattes aacrochées a la branche ressemblent à des mains de grand-mères toutes ridées, mais le plus perturbant ce sont ses yeux... ces yeux qui te fixent pourraient appartenir à un être humain...
+      choice 
+        Continuer
+          Un autre de ces drôles d'animaux se pose sur une branche un peu plus haut, te fixant également du regard...
+          Sans détourner le regard, tu t'adresses à Papa:
+          vu_oiseau_colline = true
 
-  choice
-    Papa, on repart en arrière, c'est la meilleur façon de retrouver la maison!
-      Vous remontez rapidement sur vos vélos et commencez à dévaler à la pente par laquelle vous êtes arrivés. Le volatile perché le plus haut déploit ses ailes et s'envole à votre poursuite! Il bat trois fois des ailes
-      pour se mettre à hauteur et pique dans la pente, gagnant rapidement du terrain! Tu jettes un coup d'oeil  derrière ton épaule, et tu vois l'animal de très prêt, ses drôles de "mains" tendues pour t'attraper la tête!
-      choice 
-        Continuer
-      au dernier moment, tu baisses la tête pour t'engouffrer dans la partie dense de la forêt, et l'oiseau bat frénétiquement des ailes pour éviter de prendre une branche basse. Ouf, te voilà loin de ces choses! La descente reprend tranquillement. 
-      choice 
-        Continuer
-      -> CheminGaucheBackward
+          choice
+            Papa, on repart en arrière, c'est la meilleur façon de retrouver la maison!
+              Vous remontez rapidement sur vos vélos et commencez à dévaler à la pente par laquelle vous êtes arrivés. Le volatile perché le plus haut déploit ses ailes et s'envole à votre poursuite! Il bat trois fois des ailes
+              pour se mettre à hauteur et pique dans la pente, gagnant rapidement du terrain! Tu jettes un coup d'oeil  derrière ton épaule, et tu vois l'animal de très prêt, ses drôles de "mains" tendues pour t'attraper la tête!
+              choice 
+                Continuer
+                  play_sound("weird_bird")
+                  au dernier moment, tu baisses la tête pour t'engouffrer dans la partie dense de la forêt, et l'oiseau bat frénétiquement des ailes pour éviter de prendre une branche basse. Ouf, te voilà loin de ces choses! La descente reprend tranquillement. 
+                  choice 
+                    Continuer
+                      -> CheminGaucheBackward
 
-    Papa, on continue, on ne reste pas ici avec ces trucs!
-      Vous remontez rapidement sur vos vélos et commencez à dévaler à la pente en face de vous, juste au moment ou un des volatiles se met en mouvement, battant de ses grandes ailes grises pour décoller! Le second décolle à son tour; Ils sont rapide et tu peines à les distancer, le premier fond sur toi, ses "mains" tendues pour t'attraper! au moment ou tu crois qu'il va te toucher, l'autre volatile s'en mèle, et une rivalité s'engage pour savoir qui aura la proie: tu redoubles d'efforts pour ratrapper Papa parti devant, et tu n'essai même pas de savoir lequel des deux oiseaux aura le dessus.
-      choice 
-        Continuer
-      -> cheminDroite
+            Papa, on continue, on ne reste pas ici avec ces trucs!
+              Vous remontez rapidement sur vos vélos et commencez à dévaler à la pente en face de vous, juste au moment ou un des volatiles se met en mouvement, battant de ses grandes ailes grises pour décoller! Le second décolle à son tour; Ils sont rapide et tu peines à les distancer, le premier fond sur toi, ses "mains" tendues pour t'attraper! 
+              choice
+                Continuer
+                play_sound("weird_bird")
+              Au moment ou tu crois qu'il va te toucher, l'autre volatile s'en mèle, et une rivalité s'engage pour savoir qui aura la proie: tu redoubles d'efforts pour ratrapper Papa parti devant, et tu n'essai même pas de savoir lequel des deux oiseaux aura le dessus.
+              choice 
+                Continuer
+                 -> cheminDroite
 
 beat CheminGaucheBackward
   Le retour sur ce chemin est plus simple que l'allée, la pente aidant. vous revenez assez rapidement à la fourche ou tu as choisi le chemin de gauche. Deux choix s'offre à vous:

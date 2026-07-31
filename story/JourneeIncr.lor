@@ -105,7 +105,7 @@ beat LecoucherFantome
               voix: houuuuuu pas la peine de te cacher, je sais que tu es lààààà! Houuu file d'ici, crains ma colère!!
               -> LecoucherFantome
 
-            - Appeler Papa!
+            Appeler Papa!
               -> PhantomPapa
 
             - se lever et ouvrir l'armoire
@@ -116,10 +116,10 @@ beat LecoucherFantome
                   choice 
                       Continuer
                         boule_bizarre: Ok ok, tu m'as eu, ne me fait pas de mal s'il te plait! 
-
+                        play_sound("grumble")
                         Agacé${player.name == "Justin" ? "": "e"}, tu lui demandes ce qu'il fait là, et pourquoi il t'empêche de dormir.
                         Il s'avère qu'il a perdu sa maison, et qu'il cherche un coin pour dormir, mais il avait peur qu'en le voyant tu essayes de l'écraser!
-                        Alors il va voulu se faire passer pour plus menaçant qu'il n'est vraiment, il comptait te faire fuir pour s'installer dans ta chambre...
+                        Alors il a voulu se faire passer pour plus menaçant qu'il n'est vraiment, il comptait te faire fuir pour s'installer dans ta chambre...
                         wait(2.0)
                         ...Mais il regrette! IL te demande pardon, il demande à ce que tu l'épargne, et que tu l'aides à trouver un foyer, s'il te plait, s'il te plait silteplaitsilteplaiiiiiit!
 

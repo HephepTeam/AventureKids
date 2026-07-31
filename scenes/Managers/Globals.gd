@@ -34,13 +34,14 @@ const CHOICE_BG_KEPT := Color("e33c00cc")
 
 #gameplay
 var retry = false
+var story_ended = false
 
 # paths
 	
 @onready var paths ={
 	"sorti_lit" : [false, "A quitté son lit"],
-	"ptit_dej":[ false, "A pris à petit déjeuner"],
-	"rendu_pipe":[ false, "A rendu sa pipe a un géant"],
+	"ptit_dej":[ false, "A pris un petit déjeuner"],
+	"rendu_pipe":[ false, "A rendu sa pipe à un géant"],
 	"toboggan":[ false, "A fait un tour en toboggan"],
 	"vu_lutins":[false, "A vu des lutins"],
 	"papa_convaincu":[ false, "A convaincu son père"],

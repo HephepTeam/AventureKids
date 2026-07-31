@@ -9,7 +9,7 @@ var continue_run = false
 
 func _ready():
 	var save = SaveManager.load_from_file()
-	if save != null:
+	if save != null and !Globals.story_ended:
 		continue_run = true
 	
 	# Restart button
@@ -64,6 +64,8 @@ func _start_story():
 
 func delete_progression():
 	SaveManager.delete_file()
+	for path in Globals.paths.keys():
+		Globals.paths[path][0] = false
 	get_tree().reload_current_scene()
 	pass
 

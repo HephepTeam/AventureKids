@@ -1,6 +1,8 @@
 beat CoinceDansLeJeu
     Vous décidez de partir sur les règles de bases, sans modifications, la vraie expérience Minecraft. Le jeu se charge, et dehors tu vois qu'un gros nuage noir à obscurci le ciel.
     Tu avais effectivement entendu gronder le tonerre avant mais tu n'y avais pas prêté attention...
+    choice
+      Continuer
     Soudain, un éclair gigantesque zèbre le ciel, tout prêt de la maison, si prêt que ta vue deviens toute blanche un instant, et tu fermes les yeux, ébloui${player.name == "Justin" ? "": "e"}.
     à côté de toi, tu entends Papa grommeler pour la même raison... mais quand tu réouvre les yeux, tout est noir autour de toi! La pièce est 
     plongée dans l'obscurité, et tu es désorienté${player.name == "Justin" ? "": "e"}. 
@@ -13,9 +15,10 @@ beat CoinceDansLeJeu
         papa: $player.name, tu es là? Attrape ma main, je pense que les plombs on sautés suite à cet éclair, essayons de trouver une lampe ou une bougie!
 
     Avec Papa, tu cherches à te repérer dans le noir. le touché de sa main est étrange, il doit serré trop fort, il est inquiet. Vous etiez sur le canapé à l'origine, mais une fois levé tu n'es plus vraiment sûr d'où il se trouve...
+    choice
+      Continuer
     En vous dirigeant à l'opposé supposé du canapé, vous errez sur quelques mètres, surpris de ne pas finir par atteindre la table du salon. Soudain, tu aperçois
-    une lueur qui semble venir du bout d'un couloir? Tu supposes que c'est l'arrière cuisine, mais plus vous avancez, plus le lieu semble inconnu. Au bout de ce couloir, vous tombez
-    sur une porte en bois simple comportant une fenêtre à vitre fumée que tu n'avais jamais vu avant. Avec Papa, vous vous regardez, éclairés par cette seule lumière diffuse.
+    une lueur qui semble venir du bout d'un couloir? Tu supposes que c'est l'arrière cuisine, mais plus vous avancez, plus le lieu semble inconnu. Au bout de ce couloir, vous tombez sur une porte en bois simple comportant une fenêtre à vitre fumée que tu n'avais jamais vu avant. Avec Papa, vous vous regardez, éclairés par cette seule lumière diffuse.
 
     choice
       Ouvrir la porte
@@ -27,11 +30,13 @@ beat CoinceDansLeJeu
         Papa saisi la poignée, la tourne et la pousse.
 
     visite_minecraft = true
-    La lumière est brievement plus forte et tes yeux s'habitue. A la lumière seulement, car pour le reste, c'est purement de l'incrédulité: Tout le paysage est étrange,
-    avec des couleurs vive, des arbres espacé, aucun buissons... tu vois un lac pas loin, mais l'eau est complètement plate, pas une seul vaguelette à l'horizon.
+    choice
+      Continuer
+    La lumière est brievement plus forte et tes yeux s'habitue. A la lumière seulement, car pour le reste, c'est purement de l'incrédulité: Tout le paysage est étrange, avec des couleurs vive, des arbres espacé, aucun buissons... tu vois un lac plus loin, mais l'eau est complètement plate, pas une seul vaguelette à l'horizon.
     Mais surtout, tout est CARRÉ ! Vous vouliez jouer à Minecraft, et bien il semble bien que vous soyez tombé dedans!
 
-    wait(1.5)
+    choice
+    Continuer
 
     Tu te tournes vers Papa... il est carré aussi! Tu regardes tes mains... des cubes! Pas étonnant que prendre la main de Papa était désagréable!
 
@@ -42,7 +47,21 @@ beat CoinceDansLeJeu
       On étudie la situation calmement
         Déjà, tu veux vérifier si c'est réellement le monde de Minecraft. Tu commences à taper le sol, les arbres, tout ce que tu peux pour voir comment ça réagit. Et tu fini par conclure, les poches pleines de cube de terre et de bois (combien tu peux en mettre [b]exactement???|\b]) : C'est bien Minecraft. Du coup, tes réflexes de joueu${player.name == "Justin" ? "r": "se"} prennent le dessus: Il faut se préparer pour la nuit! Tu missionnes Papa pour ramasser beaucoup de bois au plus vite pendant que tu essais de te fabriquer une pioche... avoir une interface de craft qui apparait devant ses yeux est assez dérangeant! Mais il faut faire vite, il faudrait trouver du charbon avant la nuit!
 
-        Mais vers ou chercher?
+        choice
+          Continuer
+          
+        Soudain, tu entends un drôle de sifflement derrière toi...
+        play_sound("creeper")
+
+        choice
+          Continuer
+
+            >> Désolé, cette partie de l'histoire n'est pas terminée, Il faudra attendre une mise à jour! >>
+            -> FIN
+
+
+
+       /* Mais vers ou chercher?
         choice
           Vers les falaises
             
@@ -52,4 +71,4 @@ beat CoinceDansLeJeu
 
       On profite, on explore!
         
-      On cherche comment rentrer chez nous! 
+      On cherche comment rentrer chez nous! */

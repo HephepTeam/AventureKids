@@ -10,7 +10,7 @@ beat  ParentsOtagePirates
       
   mais c'est trop tard, le pirate qui te tiens en joue t'as attrapé le bras. Le chef des pirates, qui à un grand tricorne sur la tête, un bandeau sur l'oeil et un crochet à la place de la main gauche, s'avance et commence à parler:
 
-  chef_pirate: Arrrrh, votre attention l'équipage! On prend toute la p'tite famille, on la fait monter dans l'gallion, et on file vers l'ile de la tortue, toute voiles dehors! Ils vont creuser à not' place pour trouver le trésor, et une fois le magots dans not' poche, on les fait passer sur la planches hehehe!
+  chef_pirate: Arrrrh, votre attention l'équipage! On prend toute la p'tite famille, on la fait monter dans l'gallion, et on file vers l'ile de la tortue, toute voiles dehors! Ils vont creuser à not' place pour trouver le trésor, et une fois le magots dans not' poche, on les fait passer sur la planche hehehe!
   
   choice 
     Continuer
@@ -26,11 +26,12 @@ beat reagirPirate
       -> reagirPirate
 
     - tu fais semblant de pleurer pour les attendrir
-      
+           
       le Capitaine te menace de son crochet: 
 
       chef_pirate: Ferme-la, morveu${player.name == "Justin" ? "x": "se"}, ou t'auras bientôt b'soin d'un cache-oeil comme le mien! Silence!
-        
+      -> reagirPirate
+
     - tu demande une dernière volonté! Prendre ton jouet préféré...
       chef_pirate: ça m'parait raisonnable, ma foi... 
       
@@ -80,10 +81,13 @@ beat libererParents
   wait(3.0)
   Après avoir repris des munitions, tu descends prudemment l'escalier. Tu espères que le bruit que vous avez fait la haut n'a pas alerté les autres pirates. Mais en arrivant dans le couloirs, tu entend un bruit de vague, et le chant des mouettes... tu te précipites dans la chambre, et tu constates que quasiment tout les pirates sont passé par la fenêtre en marchant sur une planche pour rejoindre un bateau ammaré devant la maison! Plus de rue, mais la mer a perte de vue...
 
-  D'un geste assuré tu tire sur le dernier pirate posté dans la chambre pour le mettre hors d'état de nuire, et tu t'élances sur la planche. profitant de la surprise des pirates, tu les arroses de flèches, ce qui a pour effet de les faire tituber et basculer par dessus bord! rapidement, l'espace autour de tes parents est dégagé, tu fonces desserer leur liens aux jambes et aux poignets.
+  choice
+    Continuer
+
+  D'un geste assuré tu tires sur le dernier pirate posté dans la chambre pour le mettre hors d'état de nuire, et tu t'élances sur la planche. profitant de la surprise des pirates, tu les arroses de flèches, ce qui a pour effet de les faire tituber et basculer par dessus bord! rapidement, l'espace autour de tes parents est dégagé, tu fonces desserer leur liens aux jambes et aux poignets.
 
   choice 
-      Continuer
+    Continuer
 
   Tu leur cries de te suivre, et, continuant a tirer sur les pirates qui s'approchent en grognant et hurlant, tu les escortes vers la planche qui sert de pont.
 

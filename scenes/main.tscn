@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://n5367mjyapv8" path="res://assets/sounds/grumble.mp3" id="14_a8y0u"]
 [ext_resource type="AudioStream" uid="uid://cy82yf4sc0y" path="res://assets/sounds/ghost.mp3" id="16_muem4"]
 [ext_resource type="AudioStream" uid="uid://dk2pksrcoggpi" path="res://assets/sounds/wow.mp3" id="18_dp3eg"]
+[ext_resource type="AudioStream" uid="uid://djq6nchq1167c" path="res://assets/sounds/creeper.mp3" id="19_0ld40"]
 
 [node name="Main" type="Control" unique_id=880900654]
 layout_mode = 3
@@ -106,6 +107,9 @@ stream = ExtResource("13_jbj1t")
 [node name="toboggan" type="AudioStreamPlayer" parent="Sfx" unique_id=27417738]
 stream = ExtResource("13_trceg")
 
+[node name="aspiro" type="AudioStreamPlayer" parent="Sfx" unique_id=1558545456]
+stream = ExtResource("10_ya4ey")
+
 [node name="grumble" type="AudioStreamPlayer" parent="Sfx" unique_id=1837990364]
 stream = ExtResource("14_a8y0u")
 
@@ -114,3 +118,6 @@ stream = ExtResource("16_muem4")
 
 [node name="wow" type="AudioStreamPlayer" parent="Sfx" unique_id=616828878]
 stream = ExtResource("18_dp3eg")
+
+[node name="creeper" type="AudioStreamPlayer" parent="Sfx" unique_id=34550690]
+stream = ExtResource("19_0ld40")

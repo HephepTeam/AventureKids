@@ -123,16 +123,19 @@ beat ReveRendrePipe
   -> FinReve
 
 beat ReveLutinLumiere
-  Tu tends le bras pour toucher l'interrupteur... *clic* la lumière se fait, tu es un peu ébloui${player.name == "Justin" ? "" : "e"}... Lorsque tu arrives enfin à ouvrir les paupières,
-  tu aperçois une dizaine d'yeux mi-clos, luttant également pour s'ouvrir... les lutins! Rapidement ils reprennent leurs esprits, et crient entre eux dans une langue inconnue. Tu constates qu'ils sont en train de rependre une pipe géante, sur le canapé du salon!
-  Le temps que tu réfléchisse à quoi faire, 5 de ces chapardeurs s'avancent vers toi avec l'aspirateur du salon et le pointe dans ta direction! Tu ne comprends pas leur language, mais sur les ordres du plus gros, un autre lutin branche le câble electrique tandis que les autres te tiennent en joues. Amusé, tu les regardes faire, tu ne crains rien! Mais le chef lutin emet un son plus fort et plus sec, et l'un des lutin subordonné lance la machine.
-  play_sound("aspiro")
-  tu sens directement que quelque chose cloches, car ton pyjama est doucement aspiré vers l'appareil... puis c'est au tour de ton bras! L'attraction est tel que tes pieds peinent à te tenir debout, tu resistes, mais finalement tu es attiré${player.name == "Justin" ? "" : "e"} par l'aspirateur! Les lutins hurlent de joies et scandent des chants dont tu ne comprends pas la signification, à part peut-être que ça parle de victoire...
-  choice 
+  vu_lutins = true
+  Tu tends le bras pour toucher l'interrupteur... *clic* la lumière se fait, tu es un peu ébloui${player.name == "Justin" ? "" : "e"}... Lorsque tu arrives enfin à ouvrir les paupières, tu aperçois une dizaine d'yeux mi-clos, luttant également pour s'ouvrir... les lutins! Rapidement ils reprennent leurs esprits, et crient entre eux dans une langue inconnue. Tu constates qu'ils sont en train de rependre une pipe géante, sur le canapé du salon!
+  Le temps que tu réfléchisses à quoi faire, cinq de ces chapardeurs s'avancent vers toi avec l'aspirateur du salon et le pointe dans ta direction! Tu ne comprends pas leur language, mais sur les ordres du plus gros, un autre lutin branche le câble electrique tandis que les autres te tiennent en joues. Amusé, tu les regardes faire, tu ne crains rien! Mais le chef lutin emet un son plus fort et plus sec, et l'un des lutin subordonné lance la machine.
+
+  choice
     Continuer
-  Tu luttes de toute tes forces mais ta main passe déjà dans le tuyau, en se déformant comme du caoutchouc, sans douleur, et PLOP! te voilà aspiré${player.name == "Justin" ? "" : "e"} complètement...
-  play_sound("toboggan")
-  -> ReveToboggan
+      play_sound("aspiro")
+      tu sens directement que quelque chose cloches, car ton pyjama est doucement aspiré vers l'appareil... puis c'est au tour de ton bras! L'attraction est tel que tes pieds peinent à te maintenir debout, tu resistes, mais finalement tu es attiré${player.name == "Justin" ? "" : "e"} par l'aspirateur! Les lutins hurlent de joies et scandent des chants dont tu ne comprends pas la signification, à part peut-être que ça parle de victoire...
+      Tu luttes de toute tes forces mais ta main passe déjà dans le tuyau, en se déformant comme du caoutchouc, sans douleur, et PLOP! te voilà aspiré${player.name == "Justin" ? "" : "e"} complètement...
+
+      choice 
+        Continuer
+        -> ReveToboggan
 
 beat ReveDodoAgain
   Pas convaincu${player.name == "Justin" ? "" : "e"} , tu rabats la couette sur ta tête et te concentres pour ne plus penser à ce qui t'entoures, c'est bien trop bizarre.
@@ -146,11 +149,13 @@ beat ReveDodoAgain
   wait(1.0)
   ...?
   Tu... tu glisses! vers le fond du lit! Le lit est en pente et tu es entrainé${player.name == "Justin" ? "" : "e"} vers le fond!
-  play_sound("toboggan")
+
   -> ReveToboggan
+
 
 beat ReveToboggan
   toboggan = true
+  play_sound("toboggan")
   Tout devient noir autour de toi, et tu glisses de plus en plus vite... puis parfois la lumière viens au travers du tube dans lequel tu glisses à toute vitesse, un peu comme dans un parc aquatique! Il y'a des virages, à gauche, à droite, puis un long virage à gauche qui te fait faire au moins deux tours, tu perds complètement tes repères et soudain: la chute! 
   choice 
     Continuer
